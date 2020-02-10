@@ -1,0 +1,11 @@
+[
+    {
+      "filePath": "test/fixtures/one_todo_single_line/index.js",
+      "tag": "TODO",
+      "startLineNo": 1,
+      "lines": [
+        "example"
+      ],
+      "labels": []
+    }
+  ]

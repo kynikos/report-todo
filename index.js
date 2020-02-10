@@ -63,7 +63,7 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
   })
 
   if (reportMode === 'channel') {
-    return todoMatchesChannel
+    return generateMatches(todoMatchesChannel)
   }
 
   const groupedMatches = reportGroupBy && reportSortBy && todoMatchesChannel
@@ -170,6 +170,8 @@ async function iterateParseFiles({
       filePath,
     })
   }
+
+  todoMatchesChannel.push('all-files-started-parsing')
 }
 
 
@@ -182,6 +184,8 @@ function parseFile({
   todoMatchesChannel,
   filePath,
 }) {
+  todoMatchesChannel.push('started-parsing-file')
+
   // No need to use fs.readFile(), since the function calling this one
   // (iterateParseFiles()) is called asynchronously (and not awaited)
   // eslint-disable-next-line no-sync
@@ -222,7 +226,39 @@ function parseFile({
       })
     }
   }
-  todoMatchesChannel.push(null, true)
+
+  todoMatchesChannel.push('finished-parsing-file')
+}
+
+
+async function *generateMatches(todoMatchesChannel) {
+  let allFilesStartedParsing = false
+  let filesToParse = 0
+
+  for await (const todoMatch of todoMatchesChannel) {
+    if (todoMatch.filePath == null) {
+      switch (todoMatch) {
+      case 'started-parsing-file':
+        filesToParse++
+        break
+      case 'finished-parsing-file':
+        filesToParse--
+        break
+      case 'all-files-started-parsing':
+        allFilesStartedParsing = true
+        break
+      default:
+        throw new Error('Unknown event')
+      }
+      // Don't put this test inside the 'finished-parsing-file' case because it
+      // would never be reached if no files to parse were found
+      if (filesToParse <= 0 && allFilesStartedParsing) {
+        break
+      }
+    } else {
+      yield todoMatch
+    }
+  }
 }
 
 

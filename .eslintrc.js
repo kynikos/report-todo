@@ -36,6 +36,10 @@ module.exports = {
     'id-length': 'off',
     'indent': ['error', 2],
     'init-declarations': 'off',
+    'jest/consistent-test-it': ["error", {"fn": "test"}],
+    // BUG: jest/require-top-level-describe doesn't seem to support
+    //   describe.each()
+    'jest/require-top-level-describe': 'off',
     'line-comment-position': 'off',
     'linebreak-style': ['error', 'unix'],
     'lines-around-comment': 'off',
