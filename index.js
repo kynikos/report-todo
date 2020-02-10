@@ -184,6 +184,7 @@ function parseFile({
 }) {
   // No need to use fs.readFile(), since the function calling this one
   // (iterateParseFiles()) is called asynchronously (and not awaited)
+  // eslint-disable-next-line no-sync
   const stream = fs.readFileSync(filePath)
 
   for (const match of iterateMultilineMatches({
@@ -191,7 +192,10 @@ function parseFile({
     startMatch,
     continueMatch,
   })) {
-    const matchedLabels = match.lines[0][4].split(labelsSeparator)
+    const matchedLabels = match.lines[0][4]
+      ? match.lines[0][4].split(labelsSeparator)
+      : []
+
     let includeMatch
 
     if (labels == null) {
@@ -218,6 +222,7 @@ function parseFile({
       })
     }
   }
+  todoMatchesChannel.push(null, true)
 }
 
 
