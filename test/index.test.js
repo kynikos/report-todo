@@ -39,6 +39,14 @@ const fixtures = [
     reportMode: 'generator',
     caseSensitive: false,
   }],
+  ['labelsDelimiters', {
+    reportMode: 'generator',
+    labelsDelimiters: ['<({', '})>'],
+  }],
+  ['labelsSeparator', {
+    reportMode: 'generator',
+    labelsSeparator: ';->',
+  }],
 ]
 
 

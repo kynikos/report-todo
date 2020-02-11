@@ -96,8 +96,11 @@ function makeStartMatch({
       // Don't try to implement the label black/whitelist in the regular
       // expression, since that would just make non-matching labels part of the
       // comment text; same goes for ignoreLineComment
-      `(\\${labelsDelimiters[0]}(.+?)\\${labelsDelimiters[1]})?\\s*`,
-      ':?\\s*(.*)',
+      `(${
+        _escapeRegExp(labelsDelimiters[0])
+      }(.+?)${
+        _escapeRegExp(labelsDelimiters[1])
+      })?\\s*:?\\s*(.*)`,
     ].join(''),
     regExpFlags,
   )

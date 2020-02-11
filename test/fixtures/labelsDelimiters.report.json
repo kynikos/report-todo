@@ -1,0 +1,24 @@
+[
+  {
+    "filePath": "test/fixtures/labelsDelimiters/index.ts",
+    "tag": "TODO",
+    "startLineNo": 2,
+    "lines": [
+      "[not,a,label]: arstneio"
+    ],
+    "labels": []
+  },
+  {
+    "filePath": "test/fixtures/labelsDelimiters/index.ts",
+    "tag": "TODO",
+    "startLineNo": 3,
+    "lines": [
+      "qwfpluy'"
+    ],
+    "labels": [
+      "label1",
+      "label2",
+      "label3"
+    ]
+  }
+]
