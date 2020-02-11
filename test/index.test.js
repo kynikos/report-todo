@@ -47,6 +47,26 @@ const fixtures = [
     reportMode: 'generator',
     labelsSeparator: ';->',
   }],
+  ['labels', {
+    reportMode: 'generator',
+    labels: ['label1', 'label2'],
+    // labelsIsWhitelist:true should be default
+  }],
+  ['labels_false', {
+    reportMode: 'generator',
+    labels: false,
+    // labelsIsWhitelist:true should be default
+  }],
+  ['labels_null', {
+    reportMode: 'generator',
+    labels: ['label1', 'label2', null],
+    // labelsIsWhitelist:true should be default
+  }],
+  ['labelsIsWhitelist_false', {
+    reportMode: 'generator',
+    labels: ['label1'],
+    labelsIsWhitelist: false,
+  }],
 ]
 
 

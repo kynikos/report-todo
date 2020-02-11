@@ -1,0 +1,69 @@
+[
+  {
+    "filePath": "test/fixtures/labels_null/main.rs",
+    "tag": "TODO",
+    "startLineNo": 2,
+    "lines": [
+      "included"
+    ],
+    "labels": []
+  },
+  {
+    "filePath": "test/fixtures/labels_null/main.rs",
+    "tag": "TODO",
+    "startLineNo": 3,
+    "lines": [
+      "included"
+    ],
+    "labels": [
+      "label1"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/labels_null/main.rs",
+    "tag": "TODO",
+    "startLineNo": 4,
+    "lines": [
+      "included"
+    ],
+    "labels": [
+      "label2"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/labels_null/main.rs",
+    "tag": "TODO",
+    "startLineNo": 6,
+    "lines": [
+      "included"
+    ],
+    "labels": [
+      "label1",
+      "label2"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/labels_null/main.rs",
+    "tag": "TODO",
+    "startLineNo": 7,
+    "lines": [
+      "included"
+    ],
+    "labels": [
+      "label1",
+      "label3"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/labels_null/main.rs",
+    "tag": "TODO",
+    "startLineNo": 8,
+    "lines": [
+      "included"
+    ],
+    "labels": [
+      "label3",
+      "label2"
+    ]
+  }
+]

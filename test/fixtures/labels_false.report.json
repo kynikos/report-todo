@@ -1,0 +1,11 @@
+[
+  {
+    "filePath": "test/fixtures/labels_false/main.rs",
+    "tag": "TODO",
+    "startLineNo": 2,
+    "lines": [
+      "included"
+    ],
+    "labels": []
+  }
+]

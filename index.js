@@ -197,6 +197,10 @@ function parseFile({
   // eslint-disable-next-line no-sync
   const stream = fs.readFileSync(filePath)
 
+  // labelsIsWhitelist XNOR labels.some(...)
+  const includeIfNoLabels = labels && labelsIsWhitelist ===
+    labels.some((label) => [null, ''].includes(label))
+
   for (const match of iterateMultilineMatches({
     haystack: stream,
     startMatch,
@@ -211,16 +215,14 @@ function parseFile({
 
       if (labels == null) {
         includeMatch = true
+      } else if (labels === false) {
+        includeMatch = matchedLabels.length === 0
       } else if (matchedLabels.length === 0) {
-        includeMatch =
-          labels === false ||
-          // labelsIsWhitelist XNOR labels.some(...)
-          labelsIsWhitelist ===
-            labels.some((label) => [null, ''].includes(label))
+        includeMatch = includeIfNoLabels
       } else {
         // labelsIsWhitelist XNOR matchedLabels.some(...)
         includeMatch = labelsIsWhitelist ===
-          matchedLabels.some((matchedLabel) => labels.include(matchedLabel))
+          matchedLabels.some((matchedLabel) => labels.includes(matchedLabel))
       }
 
       if (includeMatch) {

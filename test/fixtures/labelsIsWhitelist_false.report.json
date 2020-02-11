@@ -1,0 +1,34 @@
+[
+  {
+    "filePath": "test/fixtures/labelsIsWhitelist_false/main.rs",
+    "tag": "TODO",
+    "startLineNo": 2,
+    "lines": [
+      "included"
+    ],
+    "labels": []
+  },
+  {
+    "filePath": "test/fixtures/labelsIsWhitelist_false/main.rs",
+    "tag": "TODO",
+    "startLineNo": 4,
+    "lines": [
+      "included"
+    ],
+    "labels": [
+      "label2"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/labelsIsWhitelist_false/main.rs",
+    "tag": "TODO",
+    "startLineNo": 6,
+    "lines": [
+      "included"
+    ],
+    "labels": [
+      "label2",
+      "label3"
+    ]
+  }
+]
