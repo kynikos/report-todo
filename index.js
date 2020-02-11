@@ -62,14 +62,14 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
     todoMatchesChannel,
   })
 
-  if (reportMode === 'channel') {
+  if (reportMode === 'generator') {
     return generateMatches(todoMatchesChannel)
   }
 
   const groupedMatches = reportGroupBy && reportSortBy && todoMatchesChannel
 
   switch (reportMode) {
-  // case 'channel' is handled above (doesn't require grouping or sorting)
+  // case 'generator' is handled above (doesn't require grouping or sorting)
   case 'markdown':
     return reportMarkdown(groupedMatches, reportOptions)
   default:

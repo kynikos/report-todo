@@ -13,7 +13,7 @@ describe.each(fixtureNames)('fixture #%# (%s)', (fixtureName) => {
 
     const todoMatchesChannel = reportTodo(
       `./test/fixtures/${fixtureName}/`,
-      {reportMode: 'channel'},
+      {reportMode: 'generator'},
     )
 
     const todoMatches = []
