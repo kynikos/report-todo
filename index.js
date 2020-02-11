@@ -82,7 +82,6 @@ function makeStartMatch({
   tags,
   regExpFlags,
   labelsDelimiters,
-  ignoreLineComment,
 }) {
   const regExpTags = tags.map((tag) => _escapeRegExp(tag)).join('|')
 
@@ -93,9 +92,9 @@ function makeStartMatch({
       `^(.*?)\\b@?(${regExpTags})\\b\\s*`,
       // Don't try to implement the label black/whitelist in the regular
       // expression, since that would just make non-matching labels part of the
-      // comment text
+      // comment text; same goes for ignoreLineComment
       `(\\${labelsDelimiters[0]}(.+?)\\${labelsDelimiters[1]})?\\s*`,
-      `:?\\s*(.*)(?!//\\s*${ignoreLineComment}$)`,
+      ':?\\s*(.*)',
     ].join(''),
     regExpFlags,
   )
@@ -152,7 +151,6 @@ async function iterateParseFiles({
     tags,
     regExpFlags,
     labelsDelimiters,
-    ignoreLineComment,
   })
   const continueMatch = makeContinueMatch(regExpFlags)
 
@@ -166,6 +164,7 @@ async function iterateParseFiles({
       labelsSeparator,
       labels,
       labelsIsWhitelist,
+      ignoreLineComment,
       todoMatchesChannel,
       filePath,
     })
@@ -181,6 +180,7 @@ function parseFile({
   labelsSeparator,
   labels,
   labelsIsWhitelist,
+  ignoreLineComment,
   todoMatchesChannel,
   filePath,
 }) {
@@ -196,34 +196,36 @@ function parseFile({
     startMatch,
     continueMatch,
   })) {
-    const matchedLabels = match.lines[0][4]
-      ? match.lines[0][4].split(labelsSeparator)
-      : []
+    if (!match.lines[0][5].endsWith(ignoreLineComment)) {
+      const matchedLabels = match.lines[0][4]
+        ? match.lines[0][4].split(labelsSeparator)
+        : []
 
-    let includeMatch
+      let includeMatch
 
-    if (labels == null) {
-      includeMatch = true
-    } else if (matchedLabels.length === 0) {
-      includeMatch =
-        labels === false ||
-        // labelsIsWhitelist XNOR labels.some(...)
-        labelsIsWhitelist ===
-          labels.some((label) => [null, ''].includes(label))
-    } else {
-      // labelsIsWhitelist XNOR matchedLabels.some(...)
-      includeMatch = labelsIsWhitelist ===
-        matchedLabels.some((matchedLabel) => labels.include(matchedLabel))
-    }
+      if (labels == null) {
+        includeMatch = true
+      } else if (matchedLabels.length === 0) {
+        includeMatch =
+          labels === false ||
+          // labelsIsWhitelist XNOR labels.some(...)
+          labelsIsWhitelist ===
+            labels.some((label) => [null, ''].includes(label))
+      } else {
+        // labelsIsWhitelist XNOR matchedLabels.some(...)
+        includeMatch = labelsIsWhitelist ===
+          matchedLabels.some((matchedLabel) => labels.include(matchedLabel))
+      }
 
-    if (includeMatch) {
-      todoMatchesChannel.push({
-        filePath,
-        tag: match.lines[0][2],
-        startLineNo: match.startLineNo,
-        lines: match.lines.map((line) => line[5]),
-        labels: matchedLabels,
-      })
+      if (includeMatch) {
+        todoMatchesChannel.push({
+          filePath,
+          tag: match.lines[0][2],
+          startLineNo: match.startLineNo,
+          lines: match.lines.map((line) => line[5]),
+          labels: matchedLabels,
+        })
+      }
     }
   }
 

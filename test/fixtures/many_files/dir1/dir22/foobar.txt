@@ -1,0 +1,3 @@
+// BUG: something's wrong
+// BUG: this should be ignored // report-todo-ignore-line
+// @BUG: something else is wrong

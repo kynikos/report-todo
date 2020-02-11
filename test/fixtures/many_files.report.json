@@ -81,5 +81,23 @@
       "too! (and this comment)"
     ],
     "labels": []
+  },
+  {
+    "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
+    "tag": "BUG",
+    "startLineNo": 1,
+    "lines": [
+      "something's wrong"
+    ],
+    "labels": []
+  },
+  {
+    "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
+    "tag": "BUG",
+    "startLineNo": 3,
+    "lines": [
+      "something else is wrong"
+    ],
+    "labels": []
   }
 ]
