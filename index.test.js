@@ -1,19 +1,38 @@
-const {readdirSync} = require('fs')
 const {reportTodo} = require('./index')
 
 
-const fixtureNames = readdirSync('./test/fixtures/', {withFileTypes: true})
-  .filter((ent) => ent.isDirectory())
-  .map((ent) => ent.name)
+const fixtures = [
+  ['empty_file', {
+    reportMode: 'generator',
+  }],
+  ['many_files', {
+    reportMode: 'generator',
+  }],
+  ['no_files', {
+    reportMode: 'generator',
+  }],
+  ['no_todos', {
+    reportMode: 'generator',
+  }],
+  ['one_file', {
+    reportMode: 'generator',
+  }],
+  ['one_todo_multi_line', {
+    reportMode: 'generator',
+  }],
+  ['one_todo_single_line', {
+    reportMode: 'generator',
+  }],
+]
 
 
-describe.each(fixtureNames)('fixture #%# (%s)', (fixtureName) => {
+describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
   test('reports correctly', async () => {
     expect.assertions(1)
 
     const todoMatchesChannel = reportTodo(
       `./test/fixtures/${fixtureName}/`,
-      {reportMode: 'generator'},
+      options,
     )
 
     const todoMatches = []
