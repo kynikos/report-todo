@@ -34,7 +34,7 @@
     ]
   },
   {
-    "filePath": "test/fixtures/many_files/script2.js",
+    "filePath": "test/fixtures/many_files/module2.py",
     "tag": "BUG",
     "startLineNo": 3,
     "lines": [
@@ -65,7 +65,7 @@
     ]
   },
   {
-    "filePath": "test/fixtures/many_files/dirBBB/not_mine.js",
+    "filePath": "test/fixtures/many_files/dirBBB/not_mine.php",
     "tag": "TODO",
     "startLineNo": 1,
     "lines": [
@@ -74,7 +74,7 @@
     "labels": []
   },
   {
-    "filePath": "test/fixtures/many_files/dirBBB/not_mine.js",
+    "filePath": "test/fixtures/many_files/dirBBB/not_mine.php",
     "tag": "TODO",
     "startLineNo": 2,
     "lines": [
