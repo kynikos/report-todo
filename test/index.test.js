@@ -67,6 +67,10 @@ const fixtures = [
     labels: ['label1'],
     labelsIsWhitelist: false,
   }],
+  ['ignoreLineComment', {
+    reportMode: 'generator',
+    ignoreLineComment: '/* custom-ignore-comment */',
+  }],
 ]
 
 
