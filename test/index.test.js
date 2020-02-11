@@ -23,6 +23,18 @@ const fixtures = [
   ['one_todo_single_line', {
     reportMode: 'generator',
   }],
+  ['tags', {
+    reportMode: 'generator',
+    tags: [
+      'FIXME',
+      'BUG',
+      'NOTE',
+      'DoSomething',
+      'NB',
+      'Yes I\'m a tag too',
+      'IMPORtant',
+    ],
+  }],
 ]
 
 
