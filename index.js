@@ -10,6 +10,9 @@ const _escapeRegExp = require('lodash.escaperegexp')
 const {iterateMultilineMatches} =
   require('@kynikos/misc/src/iterateMultilineMatches')
 
+// TODO: Support comments with closing tag, e.g.
+//  /* some comment */
+
 const DEFAULT_OPTIONS = {
   tags: ['TODO', 'FIXME', 'BUG'],
   caseSensitive: true,
