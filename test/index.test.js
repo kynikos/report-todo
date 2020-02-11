@@ -1,4 +1,4 @@
-const {reportTodo} = require('./index')
+const {reportTodo} = require('../index')
 
 
 const fixtures = [
@@ -45,7 +45,7 @@ describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
     // console.debug(JSON.stringify(todoMatches, null, 2))
 
     // eslint-disable-next-line global-require
-    const correctReport = require(`./test/fixtures/${fixtureName}.report.json`)
+    const correctReport = require(`./fixtures/${fixtureName}.report.json`)
     expect(todoMatches).toMatchObject(correctReport)
   })
 })
