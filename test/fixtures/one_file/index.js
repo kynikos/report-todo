@@ -5,6 +5,7 @@
 
 const foo = 1
 
+// todo[haha]: not uppercase
 // TODO[label3]: some text 3
 //    second second line
 

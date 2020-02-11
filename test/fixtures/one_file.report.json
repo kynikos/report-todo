@@ -24,7 +24,7 @@
   {
     "filePath": "test/fixtures/one_file/index.js",
     "tag": "TODO",
-    "startLineNo": 8,
+    "startLineNo": 9,
     "lines": [
       "some text 3",
       "second second line"
