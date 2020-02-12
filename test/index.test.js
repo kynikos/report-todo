@@ -88,9 +88,11 @@ describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
       todoMatches.push(todoMatch)
     }
 
-    // Uncomment this to see the verbatim returned object, for example to
-    // update the test report
-    // console.debug(JSON.stringify(todoMatches, null, 2))
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_PRINT_RECEIVED_VALUES) {
+      // eslint-disable-next-line no-console
+      console.debug(JSON.stringify(sortedMatches, null, 2))
+    }
 
     // eslint-disable-next-line global-require
     const correctReport = require(`./fixtures/${fixtureName}.report.json`)

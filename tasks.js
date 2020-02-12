@@ -31,8 +31,10 @@ commander
   .command('test [REGEX]')
   .description('run the automated tests; optionally only run tests with a name \
 that matches REGEX')
+  .option('-r, --print-received', `print received test values for debugging
+or updating the expected values after changing the tests`)
   // eslint-disable-next-line jest/require-top-level-describe,jest/no-disabled-tests,jest/expect-expect,jest/valid-title
-  .action((regex) => test(regex))
+  .action((regex, {printReceived}) => test(regex, printReceived))
 
 commander.parse(process.argv)
 
@@ -53,7 +55,12 @@ function lint() {
 }
 
 
-function test(testNameRegex) {
+function test(testNameRegex, printReceived) {
+  if (printReceived) {
+    // eslint-disable-next-line no-process-env
+    process.env.JEST_PRINT_RECEIVED_VALUES = 'true'
+  }
+
   npxInteractive([
     'jest',
     ...testNameRegex ? ['--testNamePattern', testNameRegex] : [],
