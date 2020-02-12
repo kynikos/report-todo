@@ -4,6 +4,8 @@
 // https://github.com/kynikos/report-todo/blob/master/LICENSE
 
 const fs = require('fs')
+const util = require('util')
+const readFile = util.promisify(fs.readFile)
 const globby = require('globby')
 const {Channel} = require('queueable')
 const _escapeRegExp = require('lodash.escaperegexp')
@@ -161,8 +163,7 @@ async function iterateParseFiles({
   const continueMatch = makeContinueMatch(regExpFlags)
 
   for await (const filePath of globby.stream(globs)) {
-    // Don't await parseFile() even if using fs.readFile() instead of
-    // fs.readFileSync(): it will asynchronously push values to the
+    // Don't await parseFile(): it will asynchronously queue values to the
     // channel, which can then be asynchronously iterated
     parseFile({
       startMatch,
@@ -180,7 +181,7 @@ async function iterateParseFiles({
 }
 
 
-function parseFile({
+async function parseFile({
   startMatch,
   continueMatch,
   labelsSeparator,
@@ -192,10 +193,7 @@ function parseFile({
 }) {
   todoMatchesChannel.push('started-parsing-file')
 
-  // No need to use fs.readFile(), since the function calling this one
-  // (iterateParseFiles()) is called asynchronously (and not awaited)
-  // eslint-disable-next-line no-sync
-  const stream = fs.readFileSync(filePath)
+  const stream = await readFile(filePath)
 
   // labelsIsWhitelist XNOR labels.some(...)
   const includeIfNoLabels = labels && labelsIsWhitelist ===
