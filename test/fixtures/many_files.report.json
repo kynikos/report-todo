@@ -1,44 +1,19 @@
 [
   {
-    "filePath": "test/fixtures/many_files/index.js",
-    "tag": "TODO",
+    "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
+    "tag": "BUG",
     "startLineNo": 1,
     "lines": [
-      "some text 1",
-      "second line",
-      "third line"
+      "something's wrong"
     ],
     "labels": []
   },
   {
-    "filePath": "test/fixtures/many_files/index.js",
-    "tag": "TODO",
-    "startLineNo": 4,
-    "lines": [
-      "some text 2"
-    ],
-    "labels": [
-      "label2"
-    ]
-  },
-  {
-    "filePath": "test/fixtures/many_files/index.js",
-    "tag": "TODO",
-    "startLineNo": 8,
-    "lines": [
-      "some text 3",
-      "second second line"
-    ],
-    "labels": [
-      "label3"
-    ]
-  },
-  {
-    "filePath": "test/fixtures/many_files/module2.py",
+    "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
     "tag": "BUG",
     "startLineNo": 3,
     "lines": [
-      "solve me"
+      "something else is wrong"
     ],
     "labels": []
   },
@@ -83,20 +58,45 @@
     "labels": []
   },
   {
-    "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
-    "tag": "BUG",
+    "filePath": "test/fixtures/many_files/index.js",
+    "tag": "TODO",
     "startLineNo": 1,
     "lines": [
-      "something's wrong"
+      "some text 1",
+      "second line",
+      "third line"
     ],
     "labels": []
   },
   {
-    "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
+    "filePath": "test/fixtures/many_files/index.js",
+    "tag": "TODO",
+    "startLineNo": 4,
+    "lines": [
+      "some text 2"
+    ],
+    "labels": [
+      "label2"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/many_files/index.js",
+    "tag": "TODO",
+    "startLineNo": 8,
+    "lines": [
+      "some text 3",
+      "second second line"
+    ],
+    "labels": [
+      "label3"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/many_files/module2.py",
     "tag": "BUG",
     "startLineNo": 3,
     "lines": [
-      "something else is wrong"
+      "solve me"
     ],
     "labels": []
   }

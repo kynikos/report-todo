@@ -83,10 +83,28 @@ describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
       options,
     )
 
-    const todoMatches = []
+    // Multiple files are parsed asynchronously, so the order of the generated
+    // matches isn't always going to be the same; for this reason map the
+    // results based on the file name, so that it's always possible to compare
+    // them deterministically
+    const filePathToTodos = {}
     for await (const todoMatch of todoMatchesChannel) {
-      todoMatches.push(todoMatch)
+      let matches = filePathToTodos[todoMatch.filePath]
+
+      // eslint-disable-next-line jest/no-if
+      if (matches == null) {
+        matches = []
+        filePathToTodos[todoMatch.filePath] = matches
+      }
+
+      matches.push(todoMatch)
     }
+
+    const sortedMatches = Object.entries(filePathToTodos).sort((a, b) => {
+      if (a[0] < b[0]) return -1
+      if (a[0] > b[0]) return 1
+      return 0
+    }).reduce((acc, [, todoMatch]) => acc.concat(todoMatch), [])
 
     // eslint-disable-next-line jest/no-if,no-process-env
     if (process.env.JEST_PRINT_RECEIVED_VALUES) {
@@ -96,6 +114,6 @@ describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
 
     // eslint-disable-next-line global-require
     const correctReport = require(`./fixtures/${fixtureName}.report.json`)
-    expect(todoMatches).toMatchObject(correctReport)
+    expect(sortedMatches).toMatchObject(correctReport)
   })
 })
