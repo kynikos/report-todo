@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const {reportTodo} = require('../index')
 
 
@@ -106,14 +108,25 @@ describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
       return 0
     }).reduce((acc, [, todoMatch]) => acc.concat(todoMatch), [])
 
+    const expectedPath = `./fixtures/${fixtureName}.report.json`
+
     // eslint-disable-next-line jest/no-if,no-process-env
     if (process.env.JEST_PRINT_RECEIVED_VALUES) {
       // eslint-disable-next-line no-console
       console.debug(JSON.stringify(sortedMatches, null, 2))
     }
 
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_UPDATE_EXPECTED_VALUES) {
+      // eslint-disable-next-line no-sync
+      fs.writeFileSync(
+        path.join('./test/', expectedPath),
+        JSON.stringify(sortedMatches, null, 2),
+      )
+    }
+
     // eslint-disable-next-line global-require
-    const correctReport = require(`./fixtures/${fixtureName}.report.json`)
-    expect(sortedMatches).toMatchObject(correctReport)
+    const expected = require(expectedPath)
+    expect(sortedMatches).toMatchObject(expected)
   })
 })
