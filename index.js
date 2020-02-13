@@ -94,7 +94,7 @@ function makeStartMatch({
     // Trailing whitespace is meaningful in Markdown, so preserve it in the
     // matched line
     [
-      `^(.*?)\\b@?(${regExpTags})\\b\\s*`,
+      `^(.*?)\\b(${regExpTags})\\b\\s*`,
       // Don't try to implement the label black/whitelist in the regular
       // expression, since that would just make non-matching labels part of the
       // comment text; same goes for ignoreLineComment
