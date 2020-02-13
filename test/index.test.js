@@ -73,6 +73,9 @@ const fixtures = [
     reportMode: 'generator',
     ignoreLineComment: '/* custom-ignore-comment */',
   }],
+  ['start_regexp', {
+    reportMode: 'generator',
+  }],
   ['indentation', {
     reportMode: 'generator',
   }],
