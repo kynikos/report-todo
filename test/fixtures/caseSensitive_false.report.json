@@ -1,6 +1,6 @@
 [
   {
-    "filePath": "test/fixtures/caseSensitive/index.coffee",
+    "filePath": "test/fixtures/caseSensitive_false/index.coffee",
     "tag": "tOdO",
     "startLineNo": 1,
     "lines": [
@@ -9,7 +9,7 @@
     "labels": []
   },
   {
-    "filePath": "test/fixtures/caseSensitive/index.coffee",
+    "filePath": "test/fixtures/caseSensitive_false/index.coffee",
     "tag": "bug",
     "startLineNo": 2,
     "lines": [
@@ -18,7 +18,7 @@
     "labels": []
   },
   {
-    "filePath": "test/fixtures/caseSensitive/index.coffee",
+    "filePath": "test/fixtures/caseSensitive_false/index.coffee",
     "tag": "fiXme",
     "startLineNo": 4,
     "lines": [

@@ -37,7 +37,7 @@ const fixtures = [
       'IMPORtant',
     ],
   }],
-  ['caseSensitive', {
+  ['caseSensitive_false', {
     reportMode: 'generator',
     caseSensitive: false,
   }],
