@@ -206,7 +206,7 @@ async function parseFile({
   })) {
     if (!match.lines[0][5].endsWith(ignoreLineComment)) {
       const matchedLabels = match.lines[0][4]
-        ? match.lines[0][4].split(labelsSeparator)
+        ? match.lines[0][4].split(labelsSeparator).map((label) => label.trim())
         : []
 
       let includeMatch
