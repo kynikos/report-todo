@@ -127,7 +127,8 @@ describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
       // eslint-disable-next-line no-sync
       fs.writeFileSync(
         path.join('./test/', expectedPath),
-        JSON.stringify(sortedMatches, null, 2),
+        // eslint-disable-next-line prefer-template
+        JSON.stringify(sortedMatches, null, 2) + '\n',
       )
     }
 
