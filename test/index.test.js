@@ -76,6 +76,9 @@ const fixtures = [
   ['indentation', {
     reportMode: 'generator',
   }],
+  ['trailing_white_space', {
+    reportMode: 'generator',
+  }],
 ]
 
 
