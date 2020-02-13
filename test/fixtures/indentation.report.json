@@ -1,0 +1,80 @@
+[
+  {
+    "filePath": "test/fixtures/indentation/main.java",
+    "tag": "TODO",
+    "startLineNo": 2,
+    "lines": [
+      "single line"
+    ],
+    "labels": [
+      "1"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/indentation/main.java",
+    "tag": "TODO",
+    "startLineNo": 5,
+    "lines": [
+      "line 1",
+      "line 2"
+    ],
+    "labels": [
+      "2"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/indentation/main.java",
+    "tag": "TODO",
+    "startLineNo": 7,
+    "lines": [
+      "line 1",
+      "line 2",
+      "line 3"
+    ],
+    "labels": [
+      "3"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/indentation/main.java",
+    "tag": "TODO",
+    "startLineNo": 11,
+    "lines": [
+      "line 1",
+      "line 2"
+    ],
+    "labels": [
+      "4"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/indentation/main.java",
+    "tag": "TODO",
+    "startLineNo": 14,
+    "lines": [
+      "line 1",
+      "line 2",
+      "  indented line 3",
+      "line 4",
+      "     indented line 5",
+      "     indented line 6",
+      " indented line 7"
+    ],
+    "labels": [
+      "5"
+    ]
+  },
+  {
+    "filePath": "test/fixtures/indentation/main.java",
+    "tag": "TODO",
+    "startLineNo": 21,
+    "lines": [
+      "line 1",
+      "line 2",
+      "TODO[part of 6]: line 3"
+    ],
+    "labels": [
+      "6"
+    ]
+  }
+]
