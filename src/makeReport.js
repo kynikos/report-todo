@@ -5,6 +5,7 @@
 
 const {groupAsyncGeneratorByNested} =
   require('@kynikos/misc/src/groupAsyncGeneratorByNested')
+const {sortGroupedMatches} = require('./sortGroupedMatches')
 const {reportMarkdown} = require('./reportMarkdown')
 
 
@@ -23,11 +24,17 @@ module.exports.makeReport = async function makeReport({
     },
   )
 
+  const groupedSortedMatches = sortGroupedMatches(
+    groupedMatches,
+    reportGroupBy,
+    reportSortBy,
+  )
+
   switch (reportMode) {
   // case 'generator' is handled in the main function (it doesn't require
   // grouping or sorting)
   case 'markdown':
-    return reportMarkdown(groupedMatches, reportOptions)
+    return reportMarkdown(groupedSortedMatches, reportOptions)
   default:
     throw new Error(`Unexpected report mode: ${reportMode}`)
   }
