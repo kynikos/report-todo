@@ -11,6 +11,8 @@ const {Channel} = require('queueable')
 const _escapeRegExp = require('lodash.escaperegexp')
 const {iterateMultilineMatches} =
   require('@kynikos/misc/src/iterateMultilineMatches')
+const {groupAsyncGeneratorByNested} =
+  require('@kynikos/misc/src/groupAsyncGeneratorByNested')
 
 // TODO: Support comments with closing tag, e.g.
 //  /* some comment */
@@ -67,19 +69,19 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
     todoMatchesChannel,
   })
 
+  const matchGenerator = generateMatches(todoMatchesChannel)
+
   if (reportMode === 'generator') {
-    return generateMatches(todoMatchesChannel)
+    return matchGenerator
   }
 
-  const groupedMatches = reportGroupBy && reportSortBy && todoMatchesChannel
-
-  switch (reportMode) {
-  // case 'generator' is handled above (doesn't require grouping or sorting)
-  case 'markdown':
-    return reportMarkdown(groupedMatches, reportOptions)
-  default:
-    throw new Error(`Unexpected report mode: ${reportMode}`)
-  }
+  return makeReport({
+    matchGenerator,
+    reportGroupBy,
+    reportSortBy,
+    reportMode,
+    reportOptions,
+  })
 }
 
 
@@ -270,9 +272,33 @@ async function *generateMatches(todoMatchesChannel) {
 }
 
 
-async function reportMarkdown(groupedMatches, reportOptions) {
-  for await (const match of groupedMatches) {
-    //match.lines.join('<br>')
-    console.log(match)
+async function makeReport({
+  matchGenerator,
+  reportGroupBy,
+  reportSortBy,
+  reportMode,
+  reportOptions,
+}) {
+  const groupedMatches = await groupAsyncGeneratorByNested(
+    matchGenerator,
+    reportGroupBy,
+    {
+      emptyArrayReplacement: '',
+    },
+  )
+
+  switch (reportMode) {
+  // case 'generator' is handled in the main function (it doesn't require
+  // grouping or sorting)
+  case 'markdown':
+    return reportMarkdown(groupedMatches, reportOptions)
+  default:
+    throw new Error(`Unexpected report mode: ${reportMode}`)
   }
+}
+
+
+function reportMarkdown(groupedMatches, reportOptions) {
+  //match.lines.join('<br>')
+  console.log(groupedMatches)
 }
