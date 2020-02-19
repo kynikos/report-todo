@@ -4,29 +4,14 @@ const {reportTodo} = require('../index')
 
 
 const fixtures = [
-  ['empty_file', {
-    reportMode: 'generator',
-  }],
-  ['many_files', {
-    reportMode: 'generator',
-  }],
-  ['no_files', {
-    reportMode: 'generator',
-  }],
-  ['no_todos', {
-    reportMode: 'generator',
-  }],
-  ['one_file', {
-    reportMode: 'generator',
-  }],
-  ['one_todo_multi_line', {
-    reportMode: 'generator',
-  }],
-  ['one_todo_single_line', {
-    reportMode: 'generator',
-  }],
+  ['empty_file', {}],
+  ['many_files', {}],
+  ['no_files', {}],
+  ['no_todos', {}],
+  ['one_file', {}],
+  ['one_todo_multi_line', {}],
+  ['one_todo_single_line', {}],
   ['tags', {
-    reportMode: 'generator',
     tags: [
       'FIXME',
       'BUG',
@@ -38,60 +23,50 @@ const fixtures = [
     ],
   }],
   ['caseSensitive_false', {
-    reportMode: 'generator',
     caseSensitive: false,
   }],
   ['labelsDelimiters', {
-    reportMode: 'generator',
     labelsDelimiters: ['<({', '})>'],
   }],
   ['labelsSeparator', {
-    reportMode: 'generator',
     labelsSeparator: ';->',
   }],
   ['labels', {
-    reportMode: 'generator',
     labels: ['label1', 'label2'],
     // labelsIsWhitelist:true should be default
   }],
   ['labels_false', {
-    reportMode: 'generator',
     labels: false,
     // labelsIsWhitelist:true should be default
   }],
   ['labels_null', {
-    reportMode: 'generator',
     labels: ['label1', 'label2', null],
     // labelsIsWhitelist:true should be default
   }],
   ['labelsIsWhitelist_false', {
-    reportMode: 'generator',
     labels: ['label1'],
     labelsIsWhitelist: false,
   }],
   ['ignoreLineComment', {
-    reportMode: 'generator',
     ignoreLineComment: '/* custom-ignore-comment */',
   }],
-  ['start_regexp', {
-    reportMode: 'generator',
-  }],
-  ['indentation', {
-    reportMode: 'generator',
-  }],
-  ['trailing_white_space', {
-    reportMode: 'generator',
-  }],
+  ['start_regexp', {}],
+  ['indentation', {}],
+  ['trailing_white_space', {}],
 ]
 
 
-describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
-  test('reports correctly', async () => {
+
+describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
+  test('generator', async () => {
     expect.assertions(1)
 
     const todoMatchesChannel = reportTodo(
       `./test/fixtures/${fixtureName}/`,
-      options,
+      {
+        reportMode: 'generator',
+        ...options,
+      },
     )
 
     // Multiple files are parsed asynchronously, so the order of the generated
