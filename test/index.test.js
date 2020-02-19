@@ -117,7 +117,7 @@ describe.each(fixtures)('fixture #%# (%s)', (fixtureName, options) => {
       return 0
     }).reduce((acc, [, todoMatch]) => acc.concat(todoMatch), [])
 
-    const expectedPath = `./fixtures/${fixtureName}.report.json`
+    const expectedPath = `./fixtures/${fixtureName}.generator.json`
 
     // eslint-disable-next-line jest/no-if,no-process-env
     if (process.env.JEST_PRINT_RECEIVED_VALUES) {
