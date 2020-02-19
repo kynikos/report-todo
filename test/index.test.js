@@ -114,4 +114,38 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     const expected = require(expectedPath)
     expect(sortedMatches).toMatchObject(expected)
   })
+
+  test('object', async () => {
+    expect.assertions(1)
+
+    const object = await reportTodo(
+      `./test/fixtures/${fixtureName}/`,
+      {
+        reportMode: 'object',
+        ...options,
+      },
+    )
+
+    const expectedPath = `./fixtures/${fixtureName}.object.json`
+
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_PRINT_RECEIVED_VALUES) {
+      // eslint-disable-next-line no-console
+      console.debug(object)
+    }
+
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_UPDATE_EXPECTED_VALUES) {
+      // eslint-disable-next-line no-sync
+      fs.writeFileSync(
+        path.join('./test/', expectedPath),
+        // eslint-disable-next-line prefer-template
+        JSON.stringify(object, null, 2) + '\n',
+      )
+    }
+
+    // eslint-disable-next-line global-require
+    const expected = require(expectedPath)
+    expect(object).toMatchObject(expected)
+  })
 })

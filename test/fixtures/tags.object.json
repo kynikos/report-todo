@@ -1,0 +1,108 @@
+[
+  {
+    "type": "labels",
+    "key": "",
+    "matches": [
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "FIXME",
+        "startLineNo": 1,
+        "lines": [
+          "fixme example"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "BUG",
+        "startLineNo": 3,
+        "lines": [
+          "bug example",
+          "continued"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "DoSomething",
+        "startLineNo": 8,
+        "lines": [
+          "some other example"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "NB",
+        "startLineNo": 11,
+        "lines": [
+          "note me very well",
+          "qwfpluy"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "IMPORtant",
+        "startLineNo": 15,
+        "lines": [
+          "do what I say"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "arst",
+    "matches": [
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "NOTE",
+        "startLineNo": 7,
+        "lines": [
+          "note example"
+        ],
+        "labels": [
+          "arst",
+          "neio"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "cool",
+    "matches": [
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "Yes I'm a tag too",
+        "startLineNo": 13,
+        "lines": [
+          "interesting"
+        ],
+        "labels": [
+          "cool"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "neio",
+    "matches": [
+      {
+        "filePath": "test/fixtures/tags/index.js",
+        "tag": "NOTE",
+        "startLineNo": 7,
+        "lines": [
+          "note example"
+        ],
+        "labels": [
+          "arst",
+          "neio"
+        ]
+      }
+    ]
+  }
+]
