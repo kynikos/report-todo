@@ -10,6 +10,8 @@ const {makeReport} = require('./makeReport')
 
 // TODO: Support comments with closing tag, e.g.
 //  /* some comment */
+// TODO: How cool would it be if the whole thing could be integrated with
+//   GitHub's issue tracker etc.
 
 const DEFAULT_OPTIONS = {
   tags: ['TODO', 'FIXME', 'BUG'],
