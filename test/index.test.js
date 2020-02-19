@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const {reportTodo} = require('../index')
+const {reportTodo} = require('../src/index')
 
 
 const fixtures = [
