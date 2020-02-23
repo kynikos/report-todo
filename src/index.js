@@ -8,6 +8,7 @@ const {iterateParseFiles} = require('./iterateParseFiles')
 const {generateMatches} = require('./generateMatches')
 const {makeReport} = require('./makeReport')
 
+// TODO: Use a configuration file to sort sections in an arbitrary order
 // TODO: Support comments with closing tag, e.g.
 //  /* some comment */
 // TODO: How cool would it be if the whole thing could be integrated with
