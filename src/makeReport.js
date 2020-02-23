@@ -16,6 +16,7 @@ module.exports.makeReport = async function makeReport({
   reportSortBy,
   reportMode,
   reportOptions,
+  labelsSeparator,
 }) {
   const groupedMatches = await groupAsyncGeneratorByNested(
     matchGenerator,
@@ -37,7 +38,7 @@ module.exports.makeReport = async function makeReport({
   // case 'generator' is handled in the main function (it doesn't require
   // grouping or sorting)
   case 'markdown':
-    return reportMarkdown(groupedSortedMatches, reportOptions)
+    return reportMarkdown(groupedSortedMatches, reportOptions, labelsSeparator)
   case 'object':
     return reportObject(groupedSortedMatches, reportOptions)
   default:

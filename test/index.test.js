@@ -148,4 +148,37 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     const expected = require(expectedPath)
     expect(object).toMatchObject(expected)
   })
+
+  test('markdown', async () => {
+    expect.assertions(1)
+
+    const markdown = await reportTodo(
+      `./test/fixtures/${fixtureName}/`,
+      {
+        reportMode: 'markdown',
+        ...options,
+      },
+    )
+
+    const expectedPath = `./test/fixtures/${fixtureName}.markdown`
+
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_PRINT_RECEIVED_VALUES) {
+      // eslint-disable-next-line no-console
+      console.debug(markdown)
+    }
+
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_UPDATE_EXPECTED_VALUES) {
+      // eslint-disable-next-line no-sync
+      fs.writeFileSync(
+        expectedPath,
+        markdown,
+      )
+    }
+
+    // eslint-disable-next-line no-sync
+    const expected = fs.readFileSync(expectedPath)
+    expect(markdown).toBe(expected.toString())
+  })
 })

@@ -80,5 +80,6 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
     reportSortBy,
     reportMode,
     reportOptions,
+    labelsSeparator,
   })
 }
