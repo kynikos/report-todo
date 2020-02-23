@@ -1,7 +1,7 @@
 [
   {
     "type": "labels",
-    "key": "",
+    "key": "[NO LABEL]",
     "matches": [
       {
         "filePath": "test/fixtures/trailing_white_space/hello.rb",

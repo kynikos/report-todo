@@ -1,138 +1,6 @@
 [
   {
     "type": "labels",
-    "key": "",
-    "matches": [
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 1,
-        "lines": [
-          ""
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 7,
-        "lines": [
-          ""
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 9,
-        "lines": [
-          ""
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 11,
-        "lines": [
-          "[:"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 13,
-        "lines": [
-          "[ :"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 19,
-        "lines": [
-          "[:"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 21,
-        "lines": [
-          "[ :"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 45,
-        "lines": [
-          "comment"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 51,
-        "lines": [
-          "comment"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 53,
-        "lines": [
-          "comment"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 55,
-        "lines": [
-          "comment"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 57,
-        "lines": [
-          "comment"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 59,
-        "lines": [
-          "[: comment"
-        ],
-        "labels": []
-      },
-      {
-        "filePath": "test/fixtures/start_regexp/hello.hs",
-        "tag": "TODO",
-        "startLineNo": 61,
-        "lines": [
-          "[ :comment"
-        ],
-        "labels": []
-      }
-    ]
-  },
-  {
-    "type": "labels",
     "key": ":",
     "matches": [
       {
@@ -492,6 +360,138 @@
         "labels": [
           "["
         ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "[NO LABEL]",
+    "matches": [
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 1,
+        "lines": [
+          ""
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 7,
+        "lines": [
+          ""
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 9,
+        "lines": [
+          ""
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 11,
+        "lines": [
+          "[:"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 13,
+        "lines": [
+          "[ :"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 19,
+        "lines": [
+          "[:"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 21,
+        "lines": [
+          "[ :"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 45,
+        "lines": [
+          "comment"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 51,
+        "lines": [
+          "comment"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 53,
+        "lines": [
+          "comment"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 55,
+        "lines": [
+          "comment"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 57,
+        "lines": [
+          "comment"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 59,
+        "lines": [
+          "[: comment"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/start_regexp/hello.hs",
+        "tag": "TODO",
+        "startLineNo": 61,
+        "lines": [
+          "[ :comment"
+        ],
+        "labels": []
       }
     ]
   },

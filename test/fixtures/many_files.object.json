@@ -1,7 +1,7 @@
 [
   {
     "type": "labels",
-    "key": "",
+    "key": "[NO LABEL]",
     "matches": [
       {
         "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",

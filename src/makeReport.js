@@ -21,7 +21,9 @@ module.exports.makeReport = async function makeReport({
     matchGenerator,
     reportGroupBy,
     {
-      emptyArrayReplacement: '',
+      // Don't use '<NO LABEL>' because the '<' could be mistaken as HTML by
+      // some report generators
+      emptyArrayReplacement: '[NO LABEL]',
     },
   )
 

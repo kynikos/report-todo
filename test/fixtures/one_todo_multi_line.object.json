@@ -1,7 +1,7 @@
 [
   {
     "type": "labels",
-    "key": "",
+    "key": "[NO LABEL]",
     "matches": [
       {
         "filePath": "test/fixtures/one_todo_multi_line/index.js",
