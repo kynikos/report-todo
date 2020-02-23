@@ -34,6 +34,8 @@ module.exports.makeReport = async function makeReport({
     reportSortBy,
   )
 
+  // TODO: JSON, XML, table (plain text), CSV, MediaWiki, VSCode
+  //   See also leasot's modes
   switch (reportMode) {
   // case 'generator' is handled in the main function (it doesn't require
   // grouping or sorting)
