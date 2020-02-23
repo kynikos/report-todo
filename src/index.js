@@ -31,6 +31,8 @@ const DEFAULT_OPTIONS = {
 }
 
 
+// TODO: Document that this is using globby, so for example also negated
+//   patterns are supported
 // TODO: See also https://pgilad.github.io/leasot/
 //       Adapt this as a plugin? Note that it also supports custom parsers
 module.exports.reportTodo = function reportTodo(globs, options = {}) {

@@ -6,6 +6,7 @@ const {emptyDirSync, copySync: xCopySync} = require('fs-extra')
 const process = require('process')
 const {spawnSync} = require('child_process')
 const readlineSync = require('readline-sync')
+const {reportTodo} = require('./src/index')
 // TODO[setup]: minimist is a simpler alternative to commander.js
 const commander = require('commander')
 const {
@@ -47,6 +48,11 @@ received values, useful after changing the tests`)
     })
   })
 
+commander
+  .command('todo')
+  .description('generate a todo-report for this very program')
+  .action(() => todo())
+
 commander.parse(process.argv)
 
 // TODO[setup]: The @kynikos dependencies should only provide peerDependencies
@@ -86,4 +92,18 @@ function runTests({
     `--silent=${printConsole || printReceived ? 'false' : 'true'}`,
     ...testNameRegex ? ['--testNamePattern', testNameRegex] : [],
   ])
+}
+
+
+function todo() {
+  reportTodo(
+    [
+      '.',
+      '!./node_modules',
+      '!./test',
+    ],
+    {
+      reportMode: 'markdown',
+    },
+  )
 }
