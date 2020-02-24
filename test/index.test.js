@@ -55,6 +55,28 @@ const fixtures = [
   ['trailing_white_space', {}],
 ]
 
+const groupsAndSorts = [
+  ['default', {}],
+  ['group_by_labels', {reportGroupBy: ['labels']}],
+  [
+    'sort_by_filePath_and_startLineNo',
+    {reportSortBy: ['filePath', 'startLineNo']},
+  ],
+]
+
+
+// eslint-disable-next-line jest/no-hooks
+beforeAll(() => {
+  for (const [fixtureName] of fixtures) {
+    const dir = path.join('./test/expected/', fixtureName)
+
+    // eslint-disable-next-line no-sync
+    if (!fs.existsSync(dir)) {
+      // eslint-disable-next-line no-sync
+      fs.mkdirSync(dir)
+    }
+  }
+})
 
 
 describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
@@ -92,7 +114,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
       return 0
     }).reduce((acc, [, todoMatch]) => acc.concat(todoMatch), [])
 
-    const expectedPath = `./fixtures/${fixtureName}.generator.json`
+    const expectedPath = `./expected/${fixtureName}/generator.json`
 
     // eslint-disable-next-line jest/no-if,no-process-env
     if (process.env.JEST_PRINT_RECEIVED_VALUES) {
@@ -115,7 +137,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     expect(sortedMatches).toMatchObject(expected)
   })
 
-  test('object', async () => {
+  test.each(groupsAndSorts)('object (%s)', async (label, options2) => {
     expect.assertions(1)
 
     const object = await reportTodo(
@@ -123,10 +145,11 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
       {
         reportMode: 'object',
         ...options,
+        ...options2,
       },
     )
 
-    const expectedPath = `./fixtures/${fixtureName}.object.json`
+    const expectedPath = `./expected/${fixtureName}/object.${label}.json`
 
     // eslint-disable-next-line jest/no-if,no-process-env
     if (process.env.JEST_PRINT_RECEIVED_VALUES) {
@@ -149,7 +172,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     expect(object).toMatchObject(expected)
   })
 
-  test('markdown', async () => {
+  test.each(groupsAndSorts)('markdown (%s)', async (label, options2) => {
     expect.assertions(1)
 
     const markdown = await reportTodo(
@@ -157,10 +180,11 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
       {
         reportMode: 'markdown',
         ...options,
+        ...options2,
       },
     )
 
-    const expectedPath = `./test/fixtures/${fixtureName}.markdown`
+    const expectedPath = `./test/expected/${fixtureName}/markdown.${label}.md`
 
     // eslint-disable-next-line jest/no-if,no-process-env
     if (process.env.JEST_PRINT_RECEIVED_VALUES) {
