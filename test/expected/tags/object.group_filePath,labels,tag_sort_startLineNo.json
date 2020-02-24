@@ -1,0 +1,162 @@
+[
+  {
+    "type": "filePath",
+    "key": "test/fixtures/tags/index.js",
+    "matches": [
+      {
+        "type": "labels",
+        "key": "[NO LABEL]",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "BUG",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "BUG",
+                "startLineNo": 3,
+                "lines": [
+                  "bug example",
+                  "continued"
+                ],
+                "labels": []
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "key": "DoSomething",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "DoSomething",
+                "startLineNo": 8,
+                "lines": [
+                  "some other example"
+                ],
+                "labels": []
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "key": "FIXME",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "FIXME",
+                "startLineNo": 1,
+                "lines": [
+                  "fixme example"
+                ],
+                "labels": []
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "key": "IMPORtant",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "IMPORtant",
+                "startLineNo": 15,
+                "lines": [
+                  "do what I say"
+                ],
+                "labels": []
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "key": "NB",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "NB",
+                "startLineNo": 11,
+                "lines": [
+                  "note me very well",
+                  "qwfpluy"
+                ],
+                "labels": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "arst",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "NOTE",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "NOTE",
+                "startLineNo": 7,
+                "lines": [
+                  "note example"
+                ],
+                "labels": [
+                  "arst",
+                  "neio"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "cool",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "Yes I'm a tag too",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "Yes I'm a tag too",
+                "startLineNo": 13,
+                "lines": [
+                  "interesting"
+                ],
+                "labels": [
+                  "cool"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "neio",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "NOTE",
+            "matches": [
+              {
+                "filePath": "test/fixtures/tags/index.js",
+                "tag": "NOTE",
+                "startLineNo": 7,
+                "lines": [
+                  "note example"
+                ],
+                "labels": [
+                  "arst",
+                  "neio"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

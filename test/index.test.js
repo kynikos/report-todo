@@ -56,12 +56,18 @@ const fixtures = [
 ]
 
 const groupsAndSorts = [
-  ['default', {}],
-  ['group_by_labels', {reportGroupBy: ['labels']}],
-  [
-    'sort_by_filePath_and_startLineNo',
-    {reportSortBy: ['filePath', 'startLineNo']},
-  ],
+  ['default', {
+    // reportGroupBy: ['labels'],
+    // reportSortBy: ['filePath', 'startLineNo'],
+  }],
+  ['group_tag,filePath_sort_labels,startLineNo', {
+    reportGroupBy: ['tag', 'filePath'],
+    reportSortBy: ['labels', 'startLineNo'],
+  }],
+  ['group_filePath,labels,tag_sort_startLineNo', {
+    reportGroupBy: ['filePath', 'labels', 'tag'],
+    reportSortBy: ['startLineNo'],
+  }],
 ]
 
 

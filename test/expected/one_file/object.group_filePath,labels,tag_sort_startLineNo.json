@@ -1,0 +1,78 @@
+[
+  {
+    "type": "filePath",
+    "key": "test/fixtures/one_file/index.js",
+    "matches": [
+      {
+        "type": "labels",
+        "key": "[NO LABEL]",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/one_file/index.js",
+                "tag": "TODO",
+                "startLineNo": 1,
+                "lines": [
+                  "some text 1",
+                  "second line",
+                  "third line"
+                ],
+                "labels": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label2",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/one_file/index.js",
+                "tag": "TODO",
+                "startLineNo": 4,
+                "lines": [
+                  "some text 2"
+                ],
+                "labels": [
+                  "label2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label3",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/one_file/index.js",
+                "tag": "TODO",
+                "startLineNo": 9,
+                "lines": [
+                  "some text 3",
+                  "second second line"
+                ],
+                "labels": [
+                  "label3"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

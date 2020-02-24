@@ -1,0 +1,92 @@
+[
+  {
+    "type": "filePath",
+    "key": "test/fixtures/caseSensitive_false/index.coffee",
+    "matches": [
+      {
+        "type": "labels",
+        "key": "[NO LABEL]",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "bug",
+            "matches": [
+              {
+                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "tag": "bug",
+                "startLineNo": 2,
+                "lines": [
+                  "comment2"
+                ],
+                "labels": []
+              }
+            ]
+          },
+          {
+            "type": "tag",
+            "key": "tOdO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "tag": "tOdO",
+                "startLineNo": 1,
+                "lines": [
+                  "comment1"
+                ],
+                "labels": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "aaa",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "fiXme",
+            "matches": [
+              {
+                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "tag": "fiXme",
+                "startLineNo": 4,
+                "lines": [
+                  "comment3"
+                ],
+                "labels": [
+                  "aaa",
+                  "bbb"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "bbb",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "fiXme",
+            "matches": [
+              {
+                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "tag": "fiXme",
+                "startLineNo": 4,
+                "lines": [
+                  "comment3"
+                ],
+                "labels": [
+                  "aaa",
+                  "bbb"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

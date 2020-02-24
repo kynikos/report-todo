@@ -1,0 +1,25 @@
+[
+  {
+    "type": "tag",
+    "key": "TODO",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/trailing_white_space/hello.rb",
+        "matches": [
+          {
+            "filePath": "test/fixtures/trailing_white_space/hello.rb",
+            "tag": "TODO",
+            "startLineNo": 2,
+            "lines": [
+              "Some markdown text with a line break  ",
+              "Next line with another break  ",
+              "Final line"
+            ],
+            "labels": []
+          }
+        ]
+      }
+    ]
+  }
+]

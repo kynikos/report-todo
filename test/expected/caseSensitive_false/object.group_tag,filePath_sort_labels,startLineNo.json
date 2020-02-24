@@ -1,0 +1,68 @@
+[
+  {
+    "type": "tag",
+    "key": "bug",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/caseSensitive_false/index.coffee",
+        "matches": [
+          {
+            "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+            "tag": "bug",
+            "startLineNo": 2,
+            "lines": [
+              "comment2"
+            ],
+            "labels": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "tag",
+    "key": "fiXme",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/caseSensitive_false/index.coffee",
+        "matches": [
+          {
+            "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+            "tag": "fiXme",
+            "startLineNo": 4,
+            "lines": [
+              "comment3"
+            ],
+            "labels": [
+              "aaa",
+              "bbb"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "tag",
+    "key": "tOdO",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/caseSensitive_false/index.coffee",
+        "matches": [
+          {
+            "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+            "tag": "tOdO",
+            "startLineNo": 1,
+            "lines": [
+              "comment1"
+            ],
+            "labels": []
+          }
+        ]
+      }
+    ]
+  }
+]

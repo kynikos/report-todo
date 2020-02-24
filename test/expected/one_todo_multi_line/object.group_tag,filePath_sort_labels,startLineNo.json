@@ -1,0 +1,25 @@
+[
+  {
+    "type": "tag",
+    "key": "TODO",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/one_todo_multi_line/index.js",
+        "matches": [
+          {
+            "filePath": "test/fixtures/one_todo_multi_line/index.js",
+            "tag": "TODO",
+            "startLineNo": 1,
+            "lines": [
+              "example line 1",
+              "line 2",
+              "line 3"
+            ],
+            "labels": []
+          }
+        ]
+      }
+    ]
+  }
+]
