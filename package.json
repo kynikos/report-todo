@@ -18,6 +18,10 @@
     "todo",
     "tracker"
   ],
+  "main": "./src/index.js",
+  "bin": {
+    "report-todo": "./report-todo.js"
+  },
   "dependencies": {
     "@kynikos/misc": "^0.3.3",
     "globby": "^11.0.0",
