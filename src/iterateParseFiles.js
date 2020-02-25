@@ -9,10 +9,10 @@ const {parseFile} = require('./parseFile')
 
 
 module.exports.iterateParseFiles = async function iterateParseFiles({
-  globs, tags, caseSensitive, labelsDelimiters, labelsSeparator,
+  globs, tags, caseInsensitive, labelsDelimiters, labelsSeparator,
   labels, labelsIsWhitelist, ignoreLineComment, todoMatchesChannel,
 }) {
-  const regExpFlags = caseSensitive ? 'u' : 'ui'
+  const regExpFlags = caseInsensitive ? 'ui' : 'u'
 
   const startMatch = makeStartMatch({
     tags,

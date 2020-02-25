@@ -4,7 +4,7 @@
     "key": "[NO LABEL]",
     "matches": [
       {
-        "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
         "tag": "tOdO",
         "startLineNo": 1,
         "lines": [
@@ -13,7 +13,7 @@
         "labels": []
       },
       {
-        "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
         "tag": "bug",
         "startLineNo": 2,
         "lines": [
@@ -28,7 +28,7 @@
     "key": "aaa",
     "matches": [
       {
-        "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
         "tag": "fiXme",
         "startLineNo": 4,
         "lines": [
@@ -46,7 +46,7 @@
     "key": "bbb",
     "matches": [
       {
-        "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
         "tag": "fiXme",
         "startLineNo": 4,
         "lines": [

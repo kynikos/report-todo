@@ -1,7 +1,7 @@
 [
   {
     "type": "filePath",
-    "key": "test/fixtures/caseSensitive_false/index.coffee",
+    "key": "test/fixtures/caseInsensitive_true/index.coffee",
     "matches": [
       {
         "type": "labels",
@@ -12,7 +12,7 @@
             "key": "bug",
             "matches": [
               {
-                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
                 "tag": "bug",
                 "startLineNo": 2,
                 "lines": [
@@ -27,7 +27,7 @@
             "key": "tOdO",
             "matches": [
               {
-                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
                 "tag": "tOdO",
                 "startLineNo": 1,
                 "lines": [
@@ -48,7 +48,7 @@
             "key": "fiXme",
             "matches": [
               {
-                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
                 "tag": "fiXme",
                 "startLineNo": 4,
                 "lines": [
@@ -72,7 +72,7 @@
             "key": "fiXme",
             "matches": [
               {
-                "filePath": "test/fixtures/caseSensitive_false/index.coffee",
+                "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
                 "tag": "fiXme",
                 "startLineNo": 4,
                 "lines": [

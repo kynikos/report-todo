@@ -22,8 +22,8 @@ const fixtures = [
       'IMPORtant',
     ],
   }],
-  ['caseSensitive_false', {
-    caseSensitive: false,
+  ['caseInsensitive_true', {
+    caseInsensitive: true,
   }],
   ['labelsDelimiters', {
     labelsDelimiters: ['<({', '})>'],

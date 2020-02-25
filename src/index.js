@@ -16,7 +16,7 @@ const {makeReport} = require('./makeReport')
 
 const DEFAULT_OPTIONS = {
   tags: ['TODO', 'FIXME', 'BUG'],
-  caseSensitive: true,
+  caseInsensitive: false,
   labelsDelimiters: ['[', ']'],
   labelsSeparator: ',',
   labels: null,
@@ -38,7 +38,7 @@ const DEFAULT_OPTIONS = {
 module.exports.reportTodo = function reportTodo(globs, options = {}) {
   const {
     tags,
-    caseSensitive,
+    caseInsensitive,
     labelsDelimiters,
     labelsSeparator,
     labels,
@@ -59,7 +59,7 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
   iterateParseFiles({
     globs,
     tags,
-    caseSensitive,
+    caseInsensitive,
     labelsDelimiters,
     labelsSeparator,
     labels,
