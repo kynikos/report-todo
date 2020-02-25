@@ -7,34 +7,18 @@ const {Channel} = require('queueable')
 const {iterateParseFiles} = require('./iterateParseFiles')
 const {generateMatches} = require('./generateMatches')
 const {makeReport} = require('./makeReport')
+const DEFAULT_OPTIONS = require('./defaultOptions')
 
 // TODO: Use a configuration file to sort sections in an arbitrary order
 // TODO: Support comments with closing tag, e.g.
 //  /* some comment */
+// TODO: See also https://pgilad.github.io/leasot/
+//       Adapt this as a plugin? Note that it also supports custom parsers
 // TODO: How cool would it be if the whole thing could be integrated with
 //   GitHub's issue tracker etc.
 
-const DEFAULT_OPTIONS = {
-  tags: ['TODO', 'FIXME', 'BUG'],
-  caseInsensitive: false,
-  labelsDelimiters: ['[', ']'],
-  labelsSeparator: ',',
-  labels: null,
-  labelsIsBlacklist: false,
-  ignoreLineComment: 'report-todo-ignore-line',
-  reportMode: 'markdown',
-  reportGroupBy: ['labels'],
-  reportSortBy: ['filePath', 'startLineNo'],
-  reportOptions: {
-    // Each report mode defines its default options in its function definition
-  },
-}
-
-
 // TODO: Document that this is using globby, so for example also negated
 //   patterns are supported
-// TODO: See also https://pgilad.github.io/leasot/
-//       Adapt this as a plugin? Note that it also supports custom parsers
 module.exports.reportTodo = function reportTodo(globs, options = {}) {
   const {
     tags,
@@ -48,7 +32,13 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
     reportGroupBy,
     reportSortBy,
     reportOptions,
-  } = {...DEFAULT_OPTIONS, ...options}
+  } = {
+    ...DEFAULT_OPTIONS.reduce((acc, {key, value}) => {
+      acc[key] = value
+      return acc
+    }, {}),
+    ...options,
+  }
 
   const todoMatchesChannel = new Channel()
 
