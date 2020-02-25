@@ -1,10 +1,10 @@
 #! /usr/bin/env node
 
 const {oneLine: L} = require('common-tags')
-// This requires having run 'npm link' and 'npm link report-todo'
-const {reportTodo} = require('report-todo')
 // TODO[setup]: minimist is a simpler alternative to commander.js
 const commander = require('commander')
+// This requires having run 'npm link' and 'npm link report-todo'
+const {DEFAULT_OPTIONS, reportTodo} = require('report-todo')
 
 const DEFAULT_EXCLUDES = [
   // Inspiration for exclude defaults:
@@ -19,35 +19,49 @@ const DEFAULT_EXCLUDES = [
 ]
 
 commander
-  .description(L`Parse trees of files and generate a report of TODO etc.
-    comments.`)
-  .arguments('[globs...]')
-  .option('--no-default-excludes', L`do not exclude some patterns such as
-    '.git' by default, i.e. only strictly use the 'globs' explicitly
-    passed on the command line; use --print-default-excludes to print a list
-    of the patterns excluded by default`)
-  .option('--print-default-excludes', L`print a list of the patterns excluded
-    by default; use --no-default-excludes to reset the patterns`)
-  .action((globs, options) => main({globs, ...options}))
+  .description(
+    // eslint-disable-next-line prefer-template
+    L`Generate a report of TODO etc. comments parsed under trees of files rooted
+      at each GLOB.` +
+    '\n\n' +
+    L`Multiple GLOB patterns are supported; patterns are
+      parsed with globby, which for
+      example also supports negative matches, see
+      https://github.com/sindresorhus/globby for more information; if GLOBs are
+      not specified, the current directory is used as the only root; some
+      patterns are also excluded by default, see also the --no-default-excludes
+      option.`,
+  )
+  .arguments('[GLOBs...]')
 
-commander.parse(process.argv)
-
-
-function main({globs, defaultExcludes, printDefaultExcludes}) {
-  if (printDefaultExcludes) {
-    for (const pattern of DEFAULT_EXCLUDES) {
-      console.log(pattern)
-    }
-    return
+for (const option of DEFAULT_OPTIONS) {
+  if (option.cliFlags && option.cliDesc) {
+    commander.option(option.cliFlags, option.cliDesc(option), option.cliProcess)
   }
+}
 
+commander
+  .option('--no-default-excludes', L`do not exclude some patterns by default,
+    i.e. only strictly use the GLOBs explicitly
+    passed on the command line; the patterns excluded by default are [
+    ${DEFAULT_EXCLUDES.join(' ')} ]`)
+
+commander
+  .action((globs, options) => main(globs, options))
+  .parse(process.argv)
+
+
+function main(globs, options) {
   if (!globs.length) globs.push('.')
 
-  if (defaultExcludes) {
+  if (options.defaultExcludes) {
     globs.push(...DEFAULT_EXCLUDES.map((pattern) => `!${pattern}`))
   }
 
   reportTodo(
     globs,
+    // Don't use 'options' directly, otherwise it will include all the undefined
+    // values and break the program
+    {...options},
   )
 }

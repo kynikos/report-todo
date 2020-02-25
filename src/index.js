@@ -8,6 +8,8 @@ const {iterateParseFiles} = require('./iterateParseFiles')
 const {generateMatches} = require('./generateMatches')
 const {makeReport} = require('./makeReport')
 const DEFAULT_OPTIONS = require('./defaultOptions')
+// The report-todo script needs to import the default options from this module
+module.exports.DEFAULT_OPTIONS = DEFAULT_OPTIONS
 
 // TODO: Use a configuration file to sort sections in an arbitrary order
 // TODO: Support comments with closing tag, e.g.
