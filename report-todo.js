@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 
+const {oneLine: L} = require('common-tags')
 // This requires having run 'npm link' and 'npm link report-todo'
 const {reportTodo} = require('report-todo')
 // TODO[setup]: minimist is a simpler alternative to commander.js
@@ -18,15 +19,15 @@ const DEFAULT_EXCLUDES = [
 ]
 
 commander
-  .description('parse trees of files and generate a report of TODO etc. ' +
-    'comments')
+  .description(L`Parse trees of files and generate a report of TODO etc.
+    comments.`)
   .arguments('[globs...]')
-  .option('--no-default-excludes', 'do not exclude some patterns such as ' +
-    '\'.git\' by default, i.e. only strictly use the \'globs\' explicitly ' +
-    'passed on the command line; use --print-default-excludes to print a list' +
-    'of the patterns excluded by default')
-  .option('--print-default-excludes', 'print a list of the patterns excluded ' +
-    'by default; use --no-default-excludes to reset the patterns')
+  .option('--no-default-excludes', L`do not exclude some patterns such as
+    '.git' by default, i.e. only strictly use the 'globs' explicitly
+    passed on the command line; use --print-default-excludes to print a list
+    of the patterns excluded by default`)
+  .option('--print-default-excludes', L`print a list of the patterns excluded
+    by default; use --no-default-excludes to reset the patterns`)
   .action((globs, options) => main({globs, ...options}))
 
 commander.parse(process.argv)

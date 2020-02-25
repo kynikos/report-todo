@@ -6,6 +6,7 @@ const {emptyDirSync, copySync: xCopySync} = require('fs-extra')
 const process = require('process')
 const {spawnSync} = require('child_process')
 const readlineSync = require('readline-sync')
+const {oneLine: L} = require('common-tags')
 const {reportTodo} = require('./src/index')
 // TODO[setup]: minimist is a simpler alternative to commander.js
 const commander = require('commander')
@@ -31,14 +32,14 @@ commander
 
 commander
   .command('test [REGEX]')
-  .description('run the automated tests; optionally only run tests with a name \
-that matches REGEX')
+  .description(L`run the automated tests; optionally only run tests with a name
+    that matches REGEX`)
   .option('-c, --print-console', 'let tests print messages through the console')
-  .option('-p, --print-received', `print received test values for debugging
-or updating the expected values after changing the tests (it implies
---print-console)`)
-  .option('-u, --update-expected', `overwrite the expected test files with the
-received values, useful after changing the tests`)
+  .option('-p, --print-received', L`print received test values for debugging
+    or updating the expected values after changing the tests (it implies
+    --print-console)`)
+  .option('-u, --update-expected', L`overwrite the expected test files with the
+    received values, useful after changing the tests`)
   // eslint-disable-next-line jest/require-top-level-describe,jest/no-disabled-tests,jest/expect-expect,jest/valid-title
   .action((regex, {printConsole, printReceived, updateExpected}) => {
     runTests({
