@@ -14,6 +14,7 @@ const {
   npxInteractive,
 } = require('@kynikos/tasks/subprocess')
 const {
+  linkSelf,
   linkDependencies,
   maintainPackageDependencies,
 } = require('@kynikos/tasks/dependencies')
@@ -63,6 +64,9 @@ function maintainDependencies() {
     ['@kynikos'],
     true,
   )
+  // Testing the report-todo global script requires having run 'npm link' and
+  // 'npm link report-todo'
+  linkSelf({cwd: __dirname, ask: true})
 }
 
 
