@@ -15,7 +15,7 @@ module.exports.parseFile = async function parseFile({
   continueMatch,
   labelsSeparator,
   labels,
-  labelsIsWhitelist,
+  labelsIsBlacklist,
   ignoreLineComment,
   todoMatchesChannel,
   filePath,
@@ -24,8 +24,8 @@ module.exports.parseFile = async function parseFile({
 
   const stream = await readFile(filePath)
 
-  // labelsIsWhitelist XNOR labels.some(...)
-  const includeIfNoLabels = labels && labelsIsWhitelist ===
+  // labelsIsBlacklist XOR labels.some(...)
+  const includeIfNoLabels = labels && labelsIsBlacklist !==
     labels.some((label) => [null, ''].includes(label))
 
   for (const match of iterateMultilineMatches({
@@ -47,8 +47,8 @@ module.exports.parseFile = async function parseFile({
       } else if (matchedLabels.length === 0) {
         includeMatch = includeIfNoLabels
       } else {
-        // labelsIsWhitelist XNOR matchedLabels.some(...)
-        includeMatch = labelsIsWhitelist ===
+        // labelsIsBlacklist XOR matchedLabels.some(...)
+        includeMatch = labelsIsBlacklist !==
           matchedLabels.some((matchedLabel) => labels.includes(matchedLabel))
       }
 

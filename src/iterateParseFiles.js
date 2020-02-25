@@ -10,7 +10,7 @@ const {parseFile} = require('./parseFile')
 
 module.exports.iterateParseFiles = async function iterateParseFiles({
   globs, tags, caseInsensitive, labelsDelimiters, labelsSeparator,
-  labels, labelsIsWhitelist, ignoreLineComment, todoMatchesChannel,
+  labels, labelsIsBlacklist, ignoreLineComment, todoMatchesChannel,
 }) {
   const regExpFlags = caseInsensitive ? 'ui' : 'u'
 
@@ -29,7 +29,7 @@ module.exports.iterateParseFiles = async function iterateParseFiles({
       continueMatch,
       labelsSeparator,
       labels,
-      labelsIsWhitelist,
+      labelsIsBlacklist,
       ignoreLineComment,
       todoMatchesChannel,
       filePath,

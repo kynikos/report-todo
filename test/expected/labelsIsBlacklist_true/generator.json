@@ -1,6 +1,6 @@
 [
   {
-    "filePath": "test/fixtures/labelsIsWhitelist_false/main.rs",
+    "filePath": "test/fixtures/labelsIsBlacklist_true/main.rs",
     "tag": "TODO",
     "startLineNo": 2,
     "lines": [
@@ -9,7 +9,7 @@
     "labels": []
   },
   {
-    "filePath": "test/fixtures/labelsIsWhitelist_false/main.rs",
+    "filePath": "test/fixtures/labelsIsBlacklist_true/main.rs",
     "tag": "TODO",
     "startLineNo": 4,
     "lines": [
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "filePath": "test/fixtures/labelsIsWhitelist_false/main.rs",
+    "filePath": "test/fixtures/labelsIsBlacklist_true/main.rs",
     "tag": "TODO",
     "startLineNo": 6,
     "lines": [

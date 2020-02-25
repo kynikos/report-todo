@@ -33,19 +33,19 @@ const fixtures = [
   }],
   ['labels', {
     labels: ['label1', 'label2'],
-    // labelsIsWhitelist:true should be default
+    // labelsIsBlacklist:false should be default
   }],
   ['labels_false', {
     labels: false,
-    // labelsIsWhitelist:true should be default
+    // labelsIsBlacklist:false should be default
   }],
   ['labels_null', {
     labels: ['label1', 'label2', null],
-    // labelsIsWhitelist:true should be default
+    // labelsIsBlacklist:false should be default
   }],
-  ['labelsIsWhitelist_false', {
+  ['labelsIsBlacklist_true', {
     labels: ['label1'],
-    labelsIsWhitelist: false,
+    labelsIsBlacklist: true,
   }],
   ['ignoreLineComment', {
     ignoreLineComment: '/* custom-ignore-comment */',
