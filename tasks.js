@@ -34,6 +34,7 @@ commander
   .command('test [REGEX]')
   .description(L`run the automated tests; optionally only run tests with a name
     that matches REGEX`)
+  .option('-v, --verbose', 'display all individual test results')
   .option('-c, --print-console', 'let tests print messages through the console')
   .option('-p, --print-received', L`print received test values for debugging
     or updating the expected values after changing the tests (it implies
@@ -41,9 +42,10 @@ commander
   .option('-u, --update-expected', L`overwrite the expected test files with the
     received values, useful after changing the tests`)
   // eslint-disable-next-line jest/require-top-level-describe,jest/no-disabled-tests,jest/expect-expect,jest/valid-title
-  .action((regex, {printConsole, printReceived, updateExpected}) => {
+  .action((regex, {verbose, printConsole, printReceived, updateExpected}) => {
     runTests({
       testNameRegex: regex,
+      verbose,
       printConsole,
       printReceived,
       updateExpected,
@@ -79,6 +81,7 @@ function lint() {
 
 function runTests({
   testNameRegex,
+  verbose,
   printConsole,
   printReceived,
   updateExpected,
@@ -92,11 +95,15 @@ function runTests({
     process.env.JEST_UPDATE_EXPECTED_VALUES = 'true'
   }
 
-  npxInteractive([
+  const args = [
     'jest',
     `--silent=${printConsole || printReceived ? 'false' : 'true'}`,
-    ...testNameRegex ? ['--testNamePattern', testNameRegex] : [],
-  ])
+  ]
+
+  if (verbose) args.push('--verbose')
+  if (testNameRegex) args.push('--testNamePattern', testNameRegex)
+
+  npxInteractive(args)
 }
 
 
