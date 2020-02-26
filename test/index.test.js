@@ -1,73 +1,163 @@
 const fs = require('fs')
 const path = require('path')
+const {runSync} = require('@kynikos/tasks/subprocess')
 const {reportTodo} = require('../src/index')
 
 
 const fixtures = [
-  ['empty_file', {}],
-  ['many_files', {}],
-  ['no_files', {}],
-  ['no_todos', {}],
-  ['one_file', {}],
-  ['one_todo_multi_line', {}],
-  ['one_todo_single_line', {}],
-  ['tags', {
-    tags: [
-      'FIXME',
-      'BUG',
-      'NOTE',
-      'DoSomething',
-      'NB',
-      'Yes I\'m a tag too',
-      'IMPORtant',
+  ['empty_file', {}, []],
+  ['many_files', {}, []],
+  ['no_files', {}, []],
+  ['no_todos', {}, []],
+  ['one_file', {}, []],
+  ['one_todo_multi_line', {}, []],
+  ['one_todo_single_line', {}, []],
+  [
+    'tags',
+    {
+      tags: [
+        'FIXME',
+        'BUG',
+        'NOTE',
+        'DoSomething',
+        'NB',
+        'Yes I\'m a tag too',
+        'IMPORtant',
+      ],
+    },
+    [
+      '--tags',
+      'FIXME,BUG,NOTE,DoSomething,NB,Yes I\'m a tag too,IMPORtant',
     ],
-  }],
-  ['caseInsensitive_true', {
-    caseInsensitive: true,
-  }],
-  ['labelsDelimiters', {
-    labelsDelimiters: ['<({', '})>'],
-  }],
-  ['labelsSeparator', {
-    labelsSeparator: ';->',
-  }],
-  ['labels', {
-    labels: ['label1', 'label2'],
-    // labelsIsBlacklist:false should be default
-  }],
-  ['labels_false', {
-    labels: false,
-    // labelsIsBlacklist:false should be default
-  }],
-  ['labels_null', {
-    labels: ['label1', 'label2', null],
-    // labelsIsBlacklist:false should be default
-  }],
-  ['labelsIsBlacklist_true', {
-    labels: ['label1'],
-    labelsIsBlacklist: true,
-  }],
-  ['ignoreLineComment', {
-    ignoreLineComment: '/* custom-ignore-comment */',
-  }],
-  ['start_regexp', {}],
-  ['indentation', {}],
-  ['trailing_white_space', {}],
+  ],
+  [
+    'caseInsensitive_true',
+    {
+      caseInsensitive: true,
+    },
+    [
+      '--case-insensitive',
+    ],
+  ],
+  [
+    'labelsDelimiters',
+    {
+      labelsDelimiters: ['<({', '})>'],
+    },
+    [
+      '--labels-delimiters',
+      '<({,})>',
+    ],
+  ],
+  [
+    'labelsSeparator',
+    {
+      labelsSeparator: ';->',
+    },
+    [
+      '--labels-separator',
+      ';->',
+    ],
+  ],
+  [
+    'labels',
+    {
+      labels: ['label1', 'label2'],
+      // labelsIsBlacklist:false should be default
+    },
+    [
+      '--labels',
+      'label1,label2',
+    ],
+  ],
+  [
+    'labels_false',
+    {
+      labels: false,
+      // labelsIsBlacklist:false should be default
+    },
+    [
+      '--labels',
+      '',
+    ],
+  ],
+  [
+    'labels_null',
+    {
+      labels: ['label1', 'label2', null],
+      // labelsIsBlacklist:false should be default
+    },
+    [
+      '--labels',
+      'label1,label2,',
+    ],
+  ],
+  [
+    'labelsIsBlacklist_true',
+    {
+      labels: ['label1'],
+      labelsIsBlacklist: true,
+    },
+    [
+      '--labels',
+      'label1',
+      '--labels-is-blacklist',
+    ],
+  ],
+  [
+    'ignoreLineComment',
+    {
+      ignoreLineComment: '/* custom-ignore-comment */',
+    },
+    [
+      '--ignore-line-comment',
+      '/* custom-ignore-comment */',
+    ],
+  ],
+  ['start_regexp', {}, []],
+  ['indentation', {}, []],
+  ['trailing_white_space', {}, []],
 ]
 
 const groupsAndSorts = [
-  ['default', {
-    // reportGroupBy: ['labels'],
-    // reportSortBy: ['filePath', 'startLineNo'],
-  }],
-  ['group_tag,filePath_sort_labels,startLineNo', {
-    reportGroupBy: ['tag', 'filePath'],
-    reportSortBy: ['labels', 'startLineNo'],
-  }],
-  ['group_filePath,labels,tag_sort_startLineNo', {
-    reportGroupBy: ['filePath', 'labels', 'tag'],
-    reportSortBy: ['startLineNo'],
-  }],
+  [
+    'default', {
+      // reportGroupBy: ['labels'],
+      // reportSortBy: ['filePath', 'startLineNo'],
+    },
+    [
+      // '--report-group-by',
+      // 'labels',
+      // '--report-sort-by',
+      // 'filePath,startLineNo',
+    ],
+  ],
+  [
+    'group_tag,filePath_sort_labels,startLineNo',
+    {
+      reportGroupBy: ['tag', 'filePath'],
+      reportSortBy: ['labels', 'startLineNo'],
+    },
+    [
+      '--report-group-by',
+      'tag,filePath',
+      '--report-sort-by',
+      'labels,startLineNo',
+    ],
+  ],
+  [
+    'group_filePath,labels,tag_sort_startLineNo',
+    {
+      reportGroupBy: ['filePath', 'labels', 'tag'],
+      reportSortBy: ['startLineNo'],
+    },
+    [
+      '--report-group-by',
+      'filePath,labels,tag',
+      '--report-sort-by',
+      'startLineNo',
+    ],
+  ],
 ]
 
 
@@ -85,7 +175,7 @@ beforeAll(() => {
 })
 
 
-describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
+describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
   test('generator', async () => {
     expect.assertions(1)
 
@@ -178,8 +268,8 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     expect(object).toMatchObject(expected)
   })
 
-  test.each(groupsAndSorts)('json (%s)', async (label, options2) => {
-    expect.assertions(1)
+  test.each(groupsAndSorts)('json (%s)', async (label, options2, cliArgs2) => {
+    expect.assertions(2)
 
     const json = await reportTodo(
       `./test/fixtures/${fixtureName}/`,
@@ -208,12 +298,28 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     }
 
     // eslint-disable-next-line no-sync
-    const expected = fs.readFileSync(expectedPath)
-    expect(json).toBe(expected.toString())
+    const expected = fs.readFileSync(expectedPath).toString()
+
+    expect(json).toBe(expected)
+
+    const cliJson = runSync(
+      'node',
+      [
+        'report-todo.js',
+        `./test/fixtures/${fixtureName}/`,
+        '--report-mode',
+        'json',
+        ...cliArgs,
+        ...cliArgs2,
+      ],
+    )
+
+    // eslint-disable-next-line prefer-template
+    expect(cliJson).toBe(expected + '\n')
   })
 
-  test.each(groupsAndSorts)('markdown (%s)', async (label, options2) => {
-    expect.assertions(1)
+  test.each(groupsAndSorts)('markdown (%s)', async (label, options2, cliArgs2) => {
+    expect.assertions(2)
 
     const markdown = await reportTodo(
       `./test/fixtures/${fixtureName}/`,
@@ -242,7 +348,22 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     }
 
     // eslint-disable-next-line no-sync
-    const expected = fs.readFileSync(expectedPath)
-    expect(markdown).toBe(expected.toString())
+    const expected = fs.readFileSync(expectedPath).toString()
+
+    expect(markdown).toBe(expected)
+
+    const cliMarkdown = runSync(
+      'node',
+      [
+        'report-todo.js',
+        `./test/fixtures/${fixtureName}/`,
+        '--report-mode',
+        'markdown',
+        ...cliArgs,
+        ...cliArgs2,
+      ],
+    )
+
+    expect(cliMarkdown).toBe(expected || '\n')
   })
 })
