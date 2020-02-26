@@ -1,0 +1,46 @@
+[
+  {
+    "type": "tag",
+    "key": "TODO",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/labelsIsBlacklist_true/main.rs",
+        "matches": [
+          {
+            "filePath": "test/fixtures/labelsIsBlacklist_true/main.rs",
+            "tag": "TODO",
+            "startLineNo": 2,
+            "lines": [
+              "included"
+            ],
+            "labels": []
+          },
+          {
+            "filePath": "test/fixtures/labelsIsBlacklist_true/main.rs",
+            "tag": "TODO",
+            "startLineNo": 4,
+            "lines": [
+              "included"
+            ],
+            "labels": [
+              "label2"
+            ]
+          },
+          {
+            "filePath": "test/fixtures/labelsIsBlacklist_true/main.rs",
+            "tag": "TODO",
+            "startLineNo": 6,
+            "lines": [
+              "included"
+            ],
+            "labels": [
+              "label2",
+              "label3"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

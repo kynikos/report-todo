@@ -1,0 +1,151 @@
+[
+  {
+    "type": "tag",
+    "key": "BUG",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/many_files/dir1/dir22/foobar.txt",
+        "matches": [
+          {
+            "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
+            "tag": "BUG",
+            "startLineNo": 1,
+            "lines": [
+              "something's wrong"
+            ],
+            "labels": []
+          },
+          {
+            "filePath": "test/fixtures/many_files/dir1/dir22/foobar.txt",
+            "tag": "BUG",
+            "startLineNo": 4,
+            "lines": [
+              "something else is wrong"
+            ],
+            "labels": []
+          }
+        ]
+      },
+      {
+        "type": "filePath",
+        "key": "test/fixtures/many_files/dirBBB/my_script.js",
+        "matches": [
+          {
+            "filePath": "test/fixtures/many_files/dirBBB/my_script.js",
+            "tag": "BUG",
+            "startLineNo": 3,
+            "lines": [
+              "do something about me",
+              "but later"
+            ],
+            "labels": [
+              "abc",
+              "def"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "filePath",
+        "key": "test/fixtures/many_files/module2.py",
+        "matches": [
+          {
+            "filePath": "test/fixtures/many_files/module2.py",
+            "tag": "BUG",
+            "startLineNo": 3,
+            "lines": [
+              "solve me"
+            ],
+            "labels": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "tag",
+    "key": "TODO",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/many_files/dirBBB/my_script.js",
+        "matches": [
+          {
+            "filePath": "test/fixtures/many_files/dirBBB/my_script.js",
+            "tag": "TODO",
+            "startLineNo": 2,
+            "lines": [
+              "too (but only the \"too\")"
+            ],
+            "labels": []
+          }
+        ]
+      },
+      {
+        "type": "filePath",
+        "key": "test/fixtures/many_files/dirBBB/not_mine.php",
+        "matches": [
+          {
+            "filePath": "test/fixtures/many_files/dirBBB/not_mine.php",
+            "tag": "TODO",
+            "startLineNo": 1,
+            "lines": [
+              "() {"
+            ],
+            "labels": []
+          },
+          {
+            "filePath": "test/fixtures/many_files/dirBBB/not_mine.php",
+            "tag": "TODO",
+            "startLineNo": 2,
+            "lines": [
+              "too! (and this comment)"
+            ],
+            "labels": []
+          }
+        ]
+      },
+      {
+        "type": "filePath",
+        "key": "test/fixtures/many_files/index.js",
+        "matches": [
+          {
+            "filePath": "test/fixtures/many_files/index.js",
+            "tag": "TODO",
+            "startLineNo": 1,
+            "lines": [
+              "some text 1",
+              "second line",
+              "third line"
+            ],
+            "labels": []
+          },
+          {
+            "filePath": "test/fixtures/many_files/index.js",
+            "tag": "TODO",
+            "startLineNo": 4,
+            "lines": [
+              "some text 2"
+            ],
+            "labels": [
+              "label2"
+            ]
+          },
+          {
+            "filePath": "test/fixtures/many_files/index.js",
+            "tag": "TODO",
+            "startLineNo": 8,
+            "lines": [
+              "some text 3",
+              "second second line"
+            ],
+            "labels": [
+              "label3"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

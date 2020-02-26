@@ -1,0 +1,29 @@
+[
+  {
+    "type": "filePath",
+    "key": "test/fixtures/ignoreLineComment/main.go",
+    "matches": [
+      {
+        "type": "labels",
+        "key": "[NO LABEL]",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/ignoreLineComment/main.go",
+                "tag": "TODO",
+                "startLineNo": 3,
+                "lines": [
+                  "included // report-todo-ignore-line"
+                ],
+                "labels": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

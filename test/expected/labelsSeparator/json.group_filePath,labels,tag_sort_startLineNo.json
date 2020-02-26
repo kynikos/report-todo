@@ -1,0 +1,106 @@
+[
+  {
+    "type": "filePath",
+    "key": "test/fixtures/labelsSeparator/index.c",
+    "matches": [
+      {
+        "type": "labels",
+        "key": "label1",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labelsSeparator/index.c",
+                "tag": "TODO",
+                "startLineNo": 3,
+                "lines": [
+                  "qwfpluy'"
+                ],
+                "labels": [
+                  "label1",
+                  "label2,",
+                  "label3"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label1,morelabel1",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labelsSeparator/index.c",
+                "tag": "TODO",
+                "startLineNo": 2,
+                "lines": [
+                  "arstneio"
+                ],
+                "labels": [
+                  "label1,morelabel1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label2,",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labelsSeparator/index.c",
+                "tag": "TODO",
+                "startLineNo": 3,
+                "lines": [
+                  "qwfpluy'"
+                ],
+                "labels": [
+                  "label1",
+                  "label2,",
+                  "label3"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label3",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labelsSeparator/index.c",
+                "tag": "TODO",
+                "startLineNo": 3,
+                "lines": [
+                  "qwfpluy'"
+                ],
+                "labels": [
+                  "label1",
+                  "label2,",
+                  "label3"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

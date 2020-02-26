@@ -61,7 +61,7 @@ module.exports = [
   {
     key: 'reportMode',
     value: 'markdown',
-    choices: ['markdown'],
+    choices: ['json', 'markdown'],
     cliFlags: '-m, --report-mode <MODE>',
     cliDesc: ({value, choices}) => L`the generated report mode; one of
       ${choices.map((choice) => `"${choice}"`).join(', ')}; more modes are

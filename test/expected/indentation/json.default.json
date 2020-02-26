@@ -1,0 +1,116 @@
+[
+  {
+    "type": "labels",
+    "key": "1",
+    "matches": [
+      {
+        "filePath": "test/fixtures/indentation/main.java",
+        "tag": "TODO",
+        "startLineNo": 2,
+        "lines": [
+          "single line"
+        ],
+        "labels": [
+          "1"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "2",
+    "matches": [
+      {
+        "filePath": "test/fixtures/indentation/main.java",
+        "tag": "TODO",
+        "startLineNo": 5,
+        "lines": [
+          "line 1",
+          "line 2"
+        ],
+        "labels": [
+          "2"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "3",
+    "matches": [
+      {
+        "filePath": "test/fixtures/indentation/main.java",
+        "tag": "TODO",
+        "startLineNo": 7,
+        "lines": [
+          "line 1",
+          "line 2",
+          "line 3"
+        ],
+        "labels": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "4",
+    "matches": [
+      {
+        "filePath": "test/fixtures/indentation/main.java",
+        "tag": "TODO",
+        "startLineNo": 11,
+        "lines": [
+          "line 1",
+          "line 2"
+        ],
+        "labels": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "5",
+    "matches": [
+      {
+        "filePath": "test/fixtures/indentation/main.java",
+        "tag": "TODO",
+        "startLineNo": 14,
+        "lines": [
+          "line 1",
+          "line 2",
+          "  indented line 3",
+          "line 4",
+          "     indented line 5",
+          "     indented line 6",
+          " indented line 7"
+        ],
+        "labels": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "6",
+    "matches": [
+      {
+        "filePath": "test/fixtures/indentation/main.java",
+        "tag": "TODO",
+        "startLineNo": 21,
+        "lines": [
+          "line 1",
+          "line 2",
+          "TODO[part of 6]: line 3"
+        ],
+        "labels": [
+          "6"
+        ]
+      }
+    ]
+  }
+]

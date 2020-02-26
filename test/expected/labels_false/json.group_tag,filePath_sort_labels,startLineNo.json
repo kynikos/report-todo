@@ -1,0 +1,23 @@
+[
+  {
+    "type": "tag",
+    "key": "TODO",
+    "matches": [
+      {
+        "type": "filePath",
+        "key": "test/fixtures/labels_false/main.rs",
+        "matches": [
+          {
+            "filePath": "test/fixtures/labels_false/main.rs",
+            "tag": "TODO",
+            "startLineNo": 2,
+            "lines": [
+              "included"
+            ],
+            "labels": []
+          }
+        ]
+      }
+    ]
+  }
+]

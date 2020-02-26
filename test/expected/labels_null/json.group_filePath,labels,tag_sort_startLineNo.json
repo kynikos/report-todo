@@ -1,0 +1,159 @@
+[
+  {
+    "type": "filePath",
+    "key": "test/fixtures/labels_null/main.rs",
+    "matches": [
+      {
+        "type": "labels",
+        "key": "[NO LABEL]",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 2,
+                "lines": [
+                  "included"
+                ],
+                "labels": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label1",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 3,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label1"
+                ]
+              },
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 6,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label1",
+                  "label2"
+                ]
+              },
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 7,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label1",
+                  "label3"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label2",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 4,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label2"
+                ]
+              },
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 6,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label1",
+                  "label2"
+                ]
+              },
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 8,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label3",
+                  "label2"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "labels",
+        "key": "label3",
+        "matches": [
+          {
+            "type": "tag",
+            "key": "TODO",
+            "matches": [
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 7,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label1",
+                  "label3"
+                ]
+              },
+              {
+                "filePath": "test/fixtures/labels_null/main.rs",
+                "tag": "TODO",
+                "startLineNo": 8,
+                "lines": [
+                  "included"
+                ],
+                "labels": [
+                  "label3",
+                  "label2"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

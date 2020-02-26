@@ -6,6 +6,7 @@
 const {groupAsyncGeneratorByNested} =
   require('@kynikos/misc/src/groupAsyncGeneratorByNested')
 const {sortGroupedMatches} = require('./sortGroupedMatches')
+const {reportJson} = require('./reportJson')
 const {reportMarkdown} = require('./reportMarkdown')
 const {reportObject} = require('./reportObject')
 
@@ -39,6 +40,8 @@ module.exports.makeReport = async function makeReport({
   switch (reportMode) {
   // case 'generator' is handled in the main function (it doesn't require
   // grouping or sorting)
+  case 'json':
+    return reportJson(groupedSortedMatches, reportOptions)
   case 'markdown':
     return reportMarkdown(groupedSortedMatches, reportOptions, labelsSeparator)
   case 'object':

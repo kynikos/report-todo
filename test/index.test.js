@@ -178,6 +178,40 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options) => {
     expect(object).toMatchObject(expected)
   })
 
+  test.each(groupsAndSorts)('json (%s)', async (label, options2) => {
+    expect.assertions(1)
+
+    const json = await reportTodo(
+      `./test/fixtures/${fixtureName}/`,
+      {
+        reportMode: 'json',
+        ...options,
+        ...options2,
+      },
+    )
+
+    const expectedPath = `./test/expected/${fixtureName}/json.${label}.json`
+
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_PRINT_RECEIVED_VALUES) {
+      // eslint-disable-next-line no-console
+      console.debug(json)
+    }
+
+    // eslint-disable-next-line jest/no-if,no-process-env
+    if (process.env.JEST_UPDATE_EXPECTED_VALUES) {
+      // eslint-disable-next-line no-sync
+      fs.writeFileSync(
+        expectedPath,
+        json,
+      )
+    }
+
+    // eslint-disable-next-line no-sync
+    const expected = fs.readFileSync(expectedPath)
+    expect(json).toBe(expected.toString())
+  })
+
   test.each(groupsAndSorts)('markdown (%s)', async (label, options2) => {
     expect.assertions(1)
 
