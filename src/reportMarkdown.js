@@ -4,12 +4,15 @@
 // https://github.com/kynikos/report-todo/blob/master/LICENSE
 
 
-module.exports.reportMarkdown = function reportMarkdown(todos, reportOptions) {
+module.exports.reportMarkdown = function reportMarkdown(
+  todos, reportOptions, labelsSeparator,
+) {
   const {subSectionKeys, subSectionText} = recurseSection({
     currentSection: todos,
     currentLevel: 1,
     groupedValues: [],
     reportOptions,
+    labelsSeparator,
   })
 
   const tableOfContents = new sectionText()
@@ -130,6 +133,7 @@ function recurseSection({
         currentLevel: currentLevel + 1,
         groupedValues: groupedValues.concat(type),
         reportOptions,
+        labelsSeparator,
       })
 
       sectionKeys.push(...subSectionKeys)

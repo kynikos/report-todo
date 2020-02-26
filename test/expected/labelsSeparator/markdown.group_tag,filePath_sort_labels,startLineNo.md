@@ -9,5 +9,5 @@
 
 | line # | labels | comment
 |:-------|:-------|:-------
-| [3](test/fixtures/labelsSeparator/index.c#L3) | label1,label2,,label3 | qwfpluy'
+| [3](test/fixtures/labelsSeparator/index.c#L3) | label1;->label2,;->label3 | qwfpluy'
 | [2](test/fixtures/labelsSeparator/index.c#L2) | label1,morelabel1 | arstneio

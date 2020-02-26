@@ -18,7 +18,7 @@
 
 | line # | labels | comment
 |:-------|:-------|:-------
-| [3](test/fixtures/labelsSeparator/index.c#L3) | label1,label2,,label3 | qwfpluy'
+| [3](test/fixtures/labelsSeparator/index.c#L3) | label1;->label2,;->label3 | qwfpluy'
 
 ## label1,morelabel1<a id="2-1"></a>
 
@@ -34,7 +34,7 @@
 
 | line # | labels | comment
 |:-------|:-------|:-------
-| [3](test/fixtures/labelsSeparator/index.c#L3) | label1,label2,,label3 | qwfpluy'
+| [3](test/fixtures/labelsSeparator/index.c#L3) | label1;->label2,;->label3 | qwfpluy'
 
 ## label3<a id="2-3"></a>
 
@@ -42,4 +42,4 @@
 
 | line # | labels | comment
 |:-------|:-------|:-------
-| [3](test/fixtures/labelsSeparator/index.c#L3) | label1,label2,,label3 | qwfpluy'
+| [3](test/fixtures/labelsSeparator/index.c#L3) | label1;->label2,;->label3 | qwfpluy'
