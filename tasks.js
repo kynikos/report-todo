@@ -19,9 +19,11 @@ const {
   maintainPackageDependencies,
 } = require('@kynikos/tasks/dependencies')
 const {jest} = require('@kynikos/tasks/testing')
+const {writePkgbuildNodeJs} = require('@kynikos/tasks/packaging')
 const {releaseProcedure} = require('@kynikos/tasks/releasing')
 const {makeReadme} = require('./aux/README')
 const {reportTodo} = require('./src/index')
+const packageJson = require('./package.json')
 
 commander
   .command('deps')
@@ -119,11 +121,30 @@ async function todo() {
     ),
   )
 }
+
+
 function release() {
   releaseProcedure({
     buildDocumentation: async () => fs.writeFileSync(
       './README.md',
       await makeReadme(),
+    ),
+    setupDistributionPackages: () => writePkgbuildNodeJs(
+      {
+        pkgbuildPath: './aux/PKGBUILD',
+        buildDir: './build/',
+      },
+      {
+        Maintainers: [
+          `${packageJson.author.name} <${packageJson.author.email}>`,
+        ],
+        pkgname: packageJson.name,
+        pkgver: packageJson.version,
+        pkgrel: 1,
+        pkgdesc: packageJson.description,
+        url: packageJson.homepage,
+        license: [packageJson.license],
+      },
     ),
   })
 }
