@@ -12,14 +12,13 @@ const {oneLine: L} = require('common-tags')
 const commander = require('commander')
 const {
   eslint,
-  npmInteractive,
-  npxInteractive,
 } = require('@kynikos/tasks/subprocess')
 const {
   linkSelf,
   linkDependencies,
   maintainPackageDependencies,
 } = require('@kynikos/tasks/dependencies')
+const {jest} = require('@kynikos/tasks/testing')
 const {reportTodo} = require('./src/index')
 
 commander
@@ -88,24 +87,13 @@ function runTests({
   printReceived,
   updateExpected,
 }) {
-  if (printReceived) {
-    // eslint-disable-next-line no-process-env
-    process.env.JEST_PRINT_RECEIVED_VALUES = 'true'
-  }
-  if (updateExpected) {
-    // eslint-disable-next-line no-process-env
-    process.env.JEST_UPDATE_EXPECTED_VALUES = 'true'
-  }
-
-  const args = [
-    'jest',
-    `--silent=${printConsole || printReceived ? 'false' : 'true'}`,
-  ]
-
-  if (verbose) args.push('--verbose')
-  if (testNameRegex) args.push('--testNamePattern', testNameRegex)
-
-  npxInteractive(args)
+  jest({
+    testNamePattern: testNameRegex,
+    verbose,
+    printConsole,
+    printReceived: printReceived ? 'JEST_PRINT_RECEIVED_VALUES' : false,
+    updateExpected: updateExpected ? 'JEST_UPDATE_EXPECTED_VALUES' : false,
+  })
 }
 
 
