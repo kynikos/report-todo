@@ -150,7 +150,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
     const cliJson = runSync(
       'node',
       [
-        'report-todo.js',
+        './aux/report-todo.js',
         `./test/fixtures/${fixtureName}/`,
         '--report-mode',
         'json',
@@ -200,7 +200,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
     const cliMarkdown = runSync(
       'node',
       [
-        'report-todo.js',
+        './aux/report-todo.js',
         `./test/fixtures/${fixtureName}/`,
         '--report-mode',
         'markdown',

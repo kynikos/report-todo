@@ -106,7 +106,7 @@ function runTests({
 
 async function todo() {
   fs.writeFileSync(
-    './TODO.md',
+    './aux/TODO.md',
     await reportTodo(
       [
         '.',
