@@ -5,7 +5,9 @@
 
 
 module.exports.reportMarkdown = function reportMarkdown(
-  todos, reportOptions, labelsSeparator,
+  todos,
+  reportOptions,
+  labelsSeparator,
 ) {
   const {subSectionKeys, subSectionText} = recurseSection({
     currentSection: todos,

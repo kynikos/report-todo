@@ -19,6 +19,7 @@ const DEFAULT_EXCLUDES = [
 ]
 
 commander
+  // eslint-disable-next-line function-paren-newline
   .description(
     // eslint-disable-next-line prefer-template
     L`Generate a report of TODO etc. comments parsed under trees of files rooted
@@ -31,6 +32,7 @@ commander
       not specified, the current directory is used as the only root; some
       patterns are also excluded by default, see also the --no-default-excludes
       option.`,
+  // eslint-disable-next-line function-paren-newline
   )
   .arguments('[GLOBs...]')
 

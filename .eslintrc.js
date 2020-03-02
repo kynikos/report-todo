@@ -23,9 +23,7 @@ module.exports = {
     'arrow-body-style': 'off',
     'brace-style': ['error', '1tbs', {'allowSingleLine': true}],
     'camelcase': 'warn',
-    'capitalized-comments': ['warn', 'always', {
-      'ignoreConsecutiveComments': true,
-    }],
+    'capitalized-comments': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'curly': ["error", "multi-line"],
     'dot-location': ["error", "property"],
@@ -76,7 +74,7 @@ module.exports = {
     }],
     'no-unused-vars': 'warn',
     'no-use-before-define': 'warn',
-    'no-warning-comments': 'warn',
+    'no-warning-comments': 'off',
     'object-curly-newline': 'off',
     'object-property-newline': ['error', {
       'allowAllPropertiesOnSameLine': true,
