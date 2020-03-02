@@ -53,17 +53,18 @@ commander
   .parse(process.argv)
 
 
-function main(globs, options) {
+async function main(globs, options) {
   if (!globs.length) globs.push('.')
 
   if (options.defaultExcludes) {
     globs.push(...DEFAULT_EXCLUDES.map((pattern) => `!${pattern}`))
   }
 
-  reportTodo(
+  // eslint-disable-next-line no-console
+  console.log(await reportTodo(
     globs,
     // Don't use 'options' directly, otherwise it will include all the undefined
     // values and break the program
     {...options},
-  )
+  ))
 }

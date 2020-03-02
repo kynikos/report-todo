@@ -32,13 +32,7 @@ module.exports.reportMarkdown = function reportMarkdown(
   }
 
   // Remove the additional line break added by the last table
-  const report = tableOfContents.text + subSectionText.slice(0, -1)
-
-  // eslint-disable-next-line no-console
-  // Remove the additional line break added by console.log()
-  console.log(report.slice(0, -1))
-
-  return report
+  return tableOfContents.text + subSectionText.slice(0, -1)
 }
 
 

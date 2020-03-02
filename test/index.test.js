@@ -209,6 +209,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
       ],
     )
 
-    expect(cliMarkdown).toBe(expected || '\n')
+    // eslint-disable-next-line prefer-template
+    expect(cliMarkdown).toBe(expected + '\n')
   })
 })

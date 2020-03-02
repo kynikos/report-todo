@@ -2,12 +2,12 @@
 
 /* eslint-disable no-sync,no-await-in-loop,no-use-before-define,no-console */
 const path = require('path')
+const fs = require('fs')
 const {emptyDirSync, copySync: xCopySync} = require('fs-extra')
 const process = require('process')
 const {spawnSync} = require('child_process')
 const readlineSync = require('readline-sync')
 const {oneLine: L} = require('common-tags')
-const {reportTodo} = require('./src/index')
 // TODO[setup]: minimist is a simpler alternative to commander.js
 const commander = require('commander')
 const {
@@ -19,6 +19,7 @@ const {
   linkDependencies,
   maintainPackageDependencies,
 } = require('@kynikos/tasks/dependencies')
+const {reportTodo} = require('./src/index')
 
 commander
   .command('deps')
@@ -107,15 +108,18 @@ function runTests({
 }
 
 
-function todo() {
-  reportTodo(
-    [
-      '.',
-      '!./node_modules',
-      '!./test',
-    ],
-    {
-      reportMode: 'markdown',
-    },
+async function todo() {
+  fs.writeFileSync(
+    './TODO.md',
+    await reportTodo(
+      [
+        '.',
+        '!./node_modules',
+        '!./test',
+      ],
+      {
+        reportMode: 'markdown',
+      },
+    ),
   )
 }

@@ -5,7 +5,5 @@
 
 
 module.exports.reportJson = function reportJson(todos, reportOptions) {
-  const json = JSON.stringify(todos, null, 2)
-  console.log(json)
-  return json
+  return JSON.stringify(todos, null, 2)
 }
