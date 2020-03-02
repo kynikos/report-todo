@@ -19,6 +19,8 @@ const {
   maintainPackageDependencies,
 } = require('@kynikos/tasks/dependencies')
 const {jest} = require('@kynikos/tasks/testing')
+const {releaseProcedure} = require('@kynikos/tasks/releasing')
+const {makeReadme} = require('./aux/README')
 const {reportTodo} = require('./src/index')
 
 commander
@@ -57,6 +59,11 @@ commander
   .command('todo')
   .description('generate a todo-report for this very program')
   .action(() => todo())
+
+commander
+  .command('release')
+  .description('build and release the application')
+  .action(() => release())
 
 commander.parse(process.argv)
 
@@ -111,4 +118,12 @@ async function todo() {
       },
     ),
   )
+}
+function release() {
+  releaseProcedure({
+    buildDocumentation: async () => fs.writeFileSync(
+      './README.md',
+      await makeReadme(),
+    ),
+  })
 }

@@ -54,6 +54,7 @@ module.exports.parseFile = async function parseFile({
 
       if (includeMatch) {
         todoMatchesChannel.push({
+          // TODO: Keep the documentation in sync with this object's keys
           filePath,
           tag: match.lines[0][2],
           startLineNo: match.startLineNo,
