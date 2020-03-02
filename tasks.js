@@ -11,6 +11,7 @@ const {oneLine: L} = require('common-tags')
 // TODO[setup]: minimist is a simpler alternative to commander.js
 const commander = require('commander')
 const {
+  eslint,
   npmInteractive,
   npxInteractive,
 } = require('@kynikos/tasks/subprocess')
@@ -76,7 +77,7 @@ function maintainDependencies() {
 
 function lint() {
   // See also the .eslintignore file
-  return npxInteractive(['eslint', __dirname])
+  return eslint([__dirname])
 }
 
 
