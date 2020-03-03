@@ -74,7 +74,7 @@ commander.parse(process.argv)
 function maintainDependencies() {
   maintainPackageDependencies(
     __dirname,
-    ['@kynikos'],
+    [/^@kynikos\//u],
     true,
   )
   // Testing the report-todo global script requires having run 'npm link' and
