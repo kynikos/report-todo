@@ -19,7 +19,11 @@ const {
   maintainPackageDependencies,
 } = require('@kynikos/tasks/dependencies')
 const {jest} = require('@kynikos/tasks/testing')
-const {writePkgbuildNodeJs} = require('@kynikos/tasks/packaging')
+const {
+  writePkgbuildNodeJs,
+  makePkgbuild,
+  installPkgbuild,
+} = require('@kynikos/tasks/packaging')
 const {releaseProcedure} = require('@kynikos/tasks/releasing')
 const {makeReadme} = require('./aux/README')
 const {reportTodo} = require('./src/index')
@@ -66,6 +70,22 @@ commander
   .command('docs')
   .description('build the documentation')
   .action(() => docs())
+
+commander
+  .command('pkg-setup')
+  .description('set up the PKGBUILD file')
+  .action(() => setupPkg())
+
+commander
+  .command('pkg-make')
+  .description('make the PKGBUILD file')
+  .action(() => makePkg())
+
+commander
+  .command('pkg-install')
+  .description('install the Pacman tarball')
+  .option('--pkgrel <NUMBER>', "set the 'pkgrel' number", 1)
+  .action(({pkgrel}) => installPkg({pkgrel}))
 
 commander
   .command('release')
@@ -136,25 +156,44 @@ async function docs() {
 }
 
 
+function setupPkg() {
+  return writePkgbuildNodeJs(
+    {
+      pkgbuildPath: './aux/PKGBUILD',
+      buildDir: './build/',
+    },
+    {
+      Maintainers: [
+        `${packageJson.author.name} <${packageJson.author.email}>`,
+      ],
+      pkgname: packageJson.name,
+      pkgver: packageJson.version,
+      pkgrel: 1,
+      pkgdesc: packageJson.description,
+      url: packageJson.homepage,
+      license: [packageJson.license],
+    },
+  )
+}
+
+
+function makePkg() {
+  return makePkgbuild({buildDir: './build/', pkgbuildPath: './aux/PKGBUILD'})
+}
+
+
+function installPkg({pkgrel}) {
+  const tarballPath =
+    `${packageJson.name}-${packageJson.version}-${pkgrel}-any.pkg.tar.xz`
+  return installPkgbuild({buildDir: './build/', tarballPath})
+}
+
+
 function release() {
   releaseProcedure({
     buildDocumentation: () => docs(),
-    setupDistributionPackages: () => writePkgbuildNodeJs(
-      {
-        pkgbuildPath: './aux/PKGBUILD',
-        buildDir: './build/',
-      },
-      {
-        Maintainers: [
-          `${packageJson.author.name} <${packageJson.author.email}>`,
-        ],
-        pkgname: packageJson.name,
-        pkgver: packageJson.version,
-        pkgrel: 1,
-        pkgdesc: packageJson.description,
-        url: packageJson.homepage,
-        license: [packageJson.license],
-      },
-    ),
+    setupDistributionPackages: () => setupPkg(),
+    testBuildDistributionPackages: () => makePkg(),
+    testInstallDistributionPackages: () => installPkg(),
   })
 }
