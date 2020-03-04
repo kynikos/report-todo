@@ -88,6 +88,16 @@ commander
   .action(({pkgrel}) => installPkg({pkgrel}))
 
 commander
+  .command('pub-npm')
+  .description('publish the package to the NPM repository')
+  .action(() => publishToNpm())
+
+commander
+  .command('pub-aur')
+  .description('publish the package to the AUR repository')
+  .action(() => publishToAur())
+
+commander
   .command('release')
   .description('build and release the application')
   .action(() => release())
@@ -189,11 +199,23 @@ function installPkg({pkgrel}) {
 }
 
 
+function publishToNpm() {
+  console.debug('TODO')
+}
+
+
+function publishToAur() {
+  console.debug('TODO')
+}
+
+
 function release() {
   releaseProcedure({
     buildDocumentation: () => docs(),
     setupDistributionPackages: () => setupPkg(),
     testBuildDistributionPackages: () => makePkg(),
     testInstallDistributionPackages: () => installPkg(),
+    publishToPackageIndex: () => publishToNpm(),
+    publishToSoftwareDistributions: () => publishToAur(),
   })
 }
