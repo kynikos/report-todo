@@ -211,11 +211,33 @@ function publishToAur() {
 
 function release() {
   releaseProcedure({
+    // releaseDependencies,
+    // checkoutProductionBranch,
+    updateVersion: L`Did you update the version number in package.json?
+      Do it manually, don't use npm-version`,
+    updateDependencies: () => maintainDependencies(),
+    recompileApplication: false,
+    runTests: () => runTests({}),
+    checkRelatedFunctionality: false,
+    lintCode: () => lint(),
+    updateTodo: () => todo(),
+    updateDatabaseDiagram: false,
+    // updateChangelog,
+    // updateDocumentation,
     buildDocumentation: () => docs(),
     setupDistributionPackages: () => setupPkg(),
     testBuildDistributionPackages: () => makePkg(),
     testInstallDistributionPackages: () => installPkg(),
+    // testInstalledDistributionPackages,
+    // commitReleaseChanges,
+    deployApplication: false,
+    deployOtherServices: false,
+    publishDocumentation: false,
+    // pushToRemoteGitRepository,
     publishToPackageIndex: () => publishToNpm(),
     publishToSoftwareDistributions: () => publishToAur(),
+    // announceRelease,
+    // advertiseRelease,
+    // restoreDevelopmentEnvironment,
   })
 }
