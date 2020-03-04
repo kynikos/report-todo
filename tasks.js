@@ -63,6 +63,11 @@ commander
   .action(() => todo())
 
 commander
+  .command('docs')
+  .description('build the documentation')
+  .action(() => docs())
+
+commander
   .command('release')
   .description('build and release the application')
   .action(() => release())
@@ -123,12 +128,17 @@ async function todo() {
 }
 
 
+async function docs() {
+  return fs.writeFileSync(
+    './README.md',
+    await makeReadme(),
+  )
+}
+
+
 function release() {
   releaseProcedure({
-    buildDocumentation: async () => fs.writeFileSync(
-      './README.md',
-      await makeReadme(),
-    ),
+    buildDocumentation: () => docs(),
     setupDistributionPackages: () => writePkgbuildNodeJs(
       {
         pkgbuildPath: './aux/PKGBUILD',
