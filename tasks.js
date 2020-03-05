@@ -27,6 +27,7 @@ const {
 const {
   releaseProcedure,
   npmPublish,
+  submitToAur,
 } = require('@kynikos/tasks/releasing')
 const {makeReadme} = require('./aux/README')
 const {reportTodo} = require('./src/index')
@@ -212,7 +213,11 @@ function publishToNpm() {
 
 
 function publishToAur() {
-  console.debug('TODO')
+  return submitToAur({
+    buildDir: './build/',
+    pkgbase: packageJson.name,
+    pkgver: packageJson.version,
+  })
 }
 
 
