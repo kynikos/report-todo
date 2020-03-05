@@ -24,7 +24,10 @@ const {
   makePkgbuild,
   installPkgbuild,
 } = require('@kynikos/tasks/packaging')
-const {releaseProcedure} = require('@kynikos/tasks/releasing')
+const {
+  releaseProcedure,
+  npmPublish,
+} = require('@kynikos/tasks/releasing')
 const {makeReadme} = require('./aux/README')
 const {reportTodo} = require('./src/index')
 const packageJson = require('./package.json')
@@ -200,7 +203,11 @@ function installPkg({pkgrel}) {
 
 
 function publishToNpm() {
-  console.debug('TODO')
+  // Don't recreate the tarball, or its checksum will change
+  return npmPublish({
+    tarball: `./build/${packageJson.name}-${packageJson.version}.tgz`,
+    public: true,
+  })
 }
 
 
