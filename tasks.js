@@ -106,6 +106,7 @@ function setupPkg() {
       pkgdesc: packageJson.description,
       url: packageJson.homepage,
       license: [packageJson.license],
+      packageInstallLicense: './LICENSE',
     },
   )
 }

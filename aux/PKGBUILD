@@ -24,4 +24,8 @@ package() {
   # npm gives ownership of all files to build user
   # https://bugs.archlinux.org/task/63396
   chown -R root:root "${pkgdir}"
+
+  install -dm755 "${pkgdir}/usr/share/licenses/${pkgname}"
+  ln -s "../../../lib/node_modules/${pkgname}/LICENSE" \
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
