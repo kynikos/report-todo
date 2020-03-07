@@ -27,6 +27,13 @@
   "bin": {
     "report-todo": "./bin/report-todo.js"
   },
+  "directories": {
+    "lib": "./src",
+    "doc": "./README.md"
+  },
+  "scripts": {
+    "test": "./tasks.js test"
+  },
   "dependencies": {
     "@kynikos/misc": "^0.3.3",
     "globby": "^11.0.0",

@@ -11,6 +11,8 @@ const DEFAULT_OPTIONS = require('./defaultOptions')
 // The report-todo script needs to import the default options from this module
 module.exports.DEFAULT_OPTIONS = DEFAULT_OPTIONS
 
+// TODO: NPM recommends also specifying 'engines' in package.json
+//   https://docs.npmjs.com/using-npm/developers.html
 // TODO: Use a configuration file to sort sections in an arbitrary order
 // TODO: Support comments with closing tag, e.g.
 //  /* some comment */
