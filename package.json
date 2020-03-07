@@ -25,7 +25,7 @@
   ],
   "main": "./src/index.js",
   "bin": {
-    "report-todo": "./aux/report-todo.js"
+    "report-todo": "./bin/report-todo.js"
   },
   "dependencies": {
     "@kynikos/misc": "^0.3.3",
