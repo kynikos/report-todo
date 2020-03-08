@@ -4,6 +4,6 @@
 // https://github.com/kynikos/report-todo/blob/master/LICENSE
 
 
-module.exports.reportObject = function reportObject(todos, reportOptions) {
+module.exports.reportObject = function reportObject(todos) {
   return todos
 }

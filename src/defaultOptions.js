@@ -129,13 +129,4 @@ module.exports = [
       default is "${value.join(',')}"`,
     cliProcess: (value, previous) => value.split(','),
   },
-  {
-    key: 'reportOptions',
-    value: {
-      // Each report mode defines its default options in its function definition
-    },
-    desc: () => 'Currently unused',
-    // cliFlags: '--report-options',
-    // cliDesc: (option) => L``,
-  },
 ]

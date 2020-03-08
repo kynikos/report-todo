@@ -4,6 +4,6 @@
 // https://github.com/kynikos/report-todo/blob/master/LICENSE
 
 
-module.exports.reportJson = function reportJson(todos, reportOptions) {
+module.exports.reportJson = function reportJson(todos) {
   return JSON.stringify(todos, null, 2)
 }

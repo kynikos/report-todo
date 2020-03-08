@@ -6,14 +6,12 @@
 
 module.exports.reportMarkdown = function reportMarkdown(
   todos,
-  reportOptions,
   labelsSeparator,
 ) {
   const {subSectionKeys, subSectionText} = recurseSection({
     currentSection: todos,
     currentLevel: 1,
     groupedValues: [],
-    reportOptions,
     labelsSeparator,
   })
 
@@ -103,7 +101,7 @@ class sectionText {
 
 
 function recurseSection({
-  currentSection, currentLevel, groupedValues, reportOptions, labelsSeparator,
+  currentSection, currentLevel, groupedValues, labelsSeparator,
 }) {
   const sectionKeys = []
   const text = new sectionText()
@@ -128,7 +126,6 @@ function recurseSection({
         currentSection: matches,
         currentLevel: currentLevel + 1,
         groupedValues: groupedValues.concat(type),
-        reportOptions,
         labelsSeparator,
       })
 
