@@ -1,4 +1,6 @@
+.vscode/
 build/
 dist/
+node_modules/
 test/expected/
 test/fixtures/

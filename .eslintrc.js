@@ -8,6 +8,7 @@ module.exports = {
     'node': true,
     'jest': true,
     'es6': true,
+    'es2017': true,
   },
   'extends': [
     'eslint:all',
