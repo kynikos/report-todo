@@ -90,7 +90,12 @@ async function todo() {
     await reportTodo(
       [
         '.',
+        '!./aux/DEMO.js',
+        '!./aux/TODO.md', // report-todo-ignore-line
+        '!./build',
+        '!./dist',
         '!./node_modules',
+        '!./README.md',
         '!./test',
       ],
       {
