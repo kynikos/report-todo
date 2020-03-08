@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@kynikos/misc": "^0.3.3",
-    "@kynikos/tasks": "^0.2.0",
+    "@kynikos/tasks": "^1.0.2",
     "clean-webpack-plugin": "^3.0.0",
     "commander": "^4.1.1",
     "common-tags": "^1.8.0",
