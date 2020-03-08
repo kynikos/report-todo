@@ -1,5 +1,8 @@
 {
     "search.exclude": {
-        "dist/": true
+        "build/": true,
+        "dist/": true,
+        "test/expected/": true,
+        "test/fixtures/": true
     }
 }
