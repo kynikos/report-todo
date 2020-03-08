@@ -6,6 +6,7 @@ const process = require('process')
 const {oneLine: L} = require('common-tags')
 const {
   eslint,
+  webpackInteractive,
 } = require('@kynikos/tasks/subprocess')
 const {
   linkSelf,
@@ -24,7 +25,7 @@ const {
 } = require('@kynikos/tasks/releasing')
 const {wrapCommander} = require('@kynikos/tasks/commander')
 const {makeReadme} = require('./aux/README')
-const {reportTodo} = require('./src/index')
+const {reportTodo} = require('./dist/index')
 const packageJson = require('./package.json')
 
 // TODO[setup]: The @kynikos dependencies should only provide peerDependencies
@@ -45,6 +46,11 @@ function maintainDependencies() {
 function lint() {
   // See also the .eslintignore file
   return eslint([__dirname])
+}
+
+
+function build({production}) {
+  return webpackInteractive([production ? '--env.production' : '--env'])
 }
 
 
@@ -149,7 +155,7 @@ function release() {
     updateVersion: L`Did you update the version number in package.json?
       Do it manually, don't use npm-version`,
     updateDependencies: () => maintainDependencies(),
-    recompileApplication: false,
+    recompileApplication: () => build({production: true}),
     runTests: () => runTests({}),
     checkRelatedFunctionality: false,
     lintCode: () => lint(),
@@ -179,6 +185,7 @@ function release() {
 const commander = wrapCommander({
   maintainDependencies,
   lint,
+  build,
   runTests,
   todo,
   docs,

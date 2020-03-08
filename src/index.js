@@ -3,6 +3,8 @@
 // Licensed under MIT
 // https://github.com/kynikos/report-todo/blob/master/LICENSE
 
+// TODO: Start using ES6 module imports when they're no longer experimental
+//   in Node.js
 const {Channel} = require('queueable')
 const {iterateParseFiles} = require('./iterateParseFiles')
 const {generateMatches} = require('./generateMatches')
@@ -10,6 +12,14 @@ const {makeReport} = require('./makeReport')
 const DEFAULT_OPTIONS = require('./defaultOptions')
 // The report-todo script needs to import the default options from this module
 module.exports.DEFAULT_OPTIONS = DEFAULT_OPTIONS
+
+// These exports are required by the bin script, which can't require them
+// directly, since technically they get bundled in the report-todo library,
+// they're not available as independent node_modules libraries
+// TODO: Make a Babel plugin to pre-process all oneLine strings at compile time
+//   (turn them all into normal strings, properly dedented)
+module.exports.oneLine = require('common-tags').oneLine
+module.exports.commander = require('commander')
 
 // TODO: NPM recommends also specifying 'engines' in package.json
 //   https://docs.npmjs.com/using-npm/developers.html

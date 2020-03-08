@@ -1,10 +1,14 @@
-#! /usr/bin/env node
+// The shebang is added by webpack's BannerPlugin, otherwise webpack gets
+// confused by it
+//#! /usr/bin/env node
 
-const {oneLine: L} = require('common-tags')
 // TODO[setup]: minimist is a simpler alternative to commander.js
-const commander = require('commander')
 // This requires having run 'npm link' and 'npm link report-todo'
-const {DEFAULT_OPTIONS, reportTodo} = require('report-todo')
+// Some libraries such as commander can't be required directly as normal
+// libraries, since technically they get bundled in the report-todo library,
+// so they're not available as independent node_modules libraries
+const {DEFAULT_OPTIONS, reportTodo, oneLine: L, commander} =
+  require('report-todo')
 
 const DEFAULT_EXCLUDES = [
   // Inspiration for exclude defaults:

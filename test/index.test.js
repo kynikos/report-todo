@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const {runSync} = require('@kynikos/tasks/subprocess')
-const {reportTodo} = require('../src/index')
+const {reportTodo} = require('../dist/index')
 const {fixtures} = require('./fixtures')
 const {groupsAndSorts} = require('./groupsAndSorts')
 

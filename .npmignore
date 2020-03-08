@@ -1,3 +1,5 @@
+.vscode/
 aux/
 build/
+src/
 test/
