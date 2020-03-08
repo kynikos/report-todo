@@ -3,7 +3,7 @@ const path = require('path')
 const {runSync} = require('@kynikos/tasks/subprocess')
 const {reportTodo} = require('../dist/index')
 const {fixtures} = require('./fixtures')
-const {groupsAndSorts} = require('./groupsAndSorts')
+const {reportOptions} = require('./reportOptions')
 
 
 // eslint-disable-next-line jest/no-hooks
@@ -78,7 +78,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
     expect(sortedMatches).toMatchObject(expected)
   })
 
-  test.each(groupsAndSorts)('object (%s)', async (label, options2) => {
+  test.each(reportOptions)('object (%s)', async (label, options2) => {
     expect.assertions(1)
 
     const object = await reportTodo(
@@ -113,7 +113,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
     expect(object).toMatchObject(expected)
   })
 
-  test.each(groupsAndSorts)('json (%s)', async (label, options2, cliArgs2) => {
+  test.each(reportOptions)('json (%s)', async (label, options2, cliArgs2) => {
     expect.assertions(2)
 
     const json = await reportTodo(
@@ -163,7 +163,7 @@ describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
     expect(cliJson).toBe(expected + '\n')
   })
 
-  test.each(groupsAndSorts)('markdown (%s)', async (label, options2, cliArgs2) => {
+  test.each(reportOptions)('markdown (%s)', async (label, options2, cliArgs2) => {
     expect.assertions(2)
 
     const markdown = await reportTodo(

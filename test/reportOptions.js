@@ -1,4 +1,4 @@
-module.exports.groupsAndSorts = [
+module.exports.reportOptions = [
   [
     'default', {
       // reportGroupBy: ['labels'],
