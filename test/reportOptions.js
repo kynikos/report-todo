@@ -37,4 +37,14 @@ module.exports.reportOptions = [
       'startLineNo',
     ],
   ],
+  [
+    'reportLinksPrefix',
+    {
+      reportLinksPrefix: '../../test/prefix/',
+    },
+    [
+      '--report-links-prefix',
+      '../../test/prefix/',
+    ],
+  ],
 ]

@@ -83,7 +83,7 @@ class sectionText {
     //  Or escape all special Markdown characters?
     //  Or just let the user do the escaping when necessary
     //  Use '\' or HTML entities? Test
-    const url = `${reportLinksPrefix}${filePath}#L${startLineNo}`
+    const url = `${reportLinksPrefix || ''}${filePath}#L${startLineNo}`
     const line = []
 
     if (this.showFilePath) {

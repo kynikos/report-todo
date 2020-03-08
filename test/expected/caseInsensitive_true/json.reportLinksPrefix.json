@@ -1,0 +1,62 @@
+[
+  {
+    "type": "labels",
+    "key": "[NO LABEL]",
+    "matches": [
+      {
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
+        "tag": "tOdO",
+        "startLineNo": 1,
+        "lines": [
+          "comment1"
+        ],
+        "labels": []
+      },
+      {
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
+        "tag": "bug",
+        "startLineNo": 2,
+        "lines": [
+          "comment2"
+        ],
+        "labels": []
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "aaa",
+    "matches": [
+      {
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
+        "tag": "fiXme",
+        "startLineNo": 4,
+        "lines": [
+          "comment3"
+        ],
+        "labels": [
+          "aaa",
+          "bbb"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "labels",
+    "key": "bbb",
+    "matches": [
+      {
+        "filePath": "test/fixtures/caseInsensitive_true/index.coffee",
+        "tag": "fiXme",
+        "startLineNo": 4,
+        "lines": [
+          "comment3"
+        ],
+        "labels": [
+          "aaa",
+          "bbb"
+        ]
+      }
+    ]
+  }
+]
