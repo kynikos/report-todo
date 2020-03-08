@@ -8,7 +8,7 @@ const {oneLine: L} = require('common-tags')
 module.exports = [
   {
     key: 'tags',
-    value: ['TODO', 'FIXME', 'BUG'],
+    value: ['TODO', 'FIXME', 'BUG'], // report-todo-ignore-line
     desc: () => 'array of tags to parse',
     cliFlags: '-t, --tags <TAG1,TAG2...>',
     cliDesc: ({value}) => L`comma-separated whitelist of tags to parse;

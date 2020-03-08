@@ -86,7 +86,7 @@ function runTests({
 
 async function todo() {
   fs.writeFileSync(
-    './aux/TODO.md',
+    './aux/TODO.md', // report-todo-ignore-line
     await reportTodo(
       [
         '.',
