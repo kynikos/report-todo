@@ -150,6 +150,8 @@ function publishToAur() {
 
 function release() {
   releaseProcedure({
+    // updateMetafiles,
+    // checkNodeJsWebpackConfiguration,
     // releaseDependencies,
     // checkoutProductionBranch,
     updateVersion: L`Did you update the version number in package.json?
