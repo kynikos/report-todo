@@ -72,7 +72,7 @@ function runTests({
   // The report-todo bin script requires (at least for testing) this very
   // library to be npm-linked
   // Having run the 'init' task should be enough
-  linkSelf({cwd: __dirname, ask: false})
+  // linkSelf({cwd: __dirname, ask: true})
 
   jest({
     testNamePattern: testNameRegex,
