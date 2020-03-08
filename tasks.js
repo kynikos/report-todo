@@ -31,14 +31,22 @@ const packageJson = require('./package.json')
 // TODO[setup]: The @kynikos dependencies should only provide peerDependencies
 
 
+function init() {
+  // Technically also 'npm install' is required, but this very script can't be
+  // executed until that command is run a first time directly in the console
+  linkSelf({cwd: __dirname, ask: false})
+}
+
+
 function maintainDependencies() {
   maintainPackageDependencies(
     __dirname,
     [/^@kynikos\//u],
     true,
   )
-  // Testing the report-todo global script requires having run 'npm link' and
-  // 'npm link report-todo'
+  // The report-todo bin script requires (at least for testing) this very
+  // library to be npm-linked
+  // Having run the 'init' task should be enough
   linkSelf({cwd: __dirname, ask: true})
 }
 
@@ -61,6 +69,11 @@ function runTests({
   printReceived,
   updateExpected,
 }) {
+  // The report-todo bin script requires (at least for testing) this very
+  // library to be npm-linked
+  // Having run the 'init' task should be enough
+  linkSelf({cwd: __dirname, ask: false})
+
   jest({
     testNamePattern: testNameRegex,
     verbose,
@@ -185,6 +198,7 @@ function release() {
 
 
 const commander = wrapCommander({
+  init,
   maintainDependencies,
   lint,
   build,
