@@ -25,7 +25,7 @@
   ],
   "main": "./src/index.js",
   "bin": {
-    "report-todo": "./bin/report-todo.js"
+    "report-todo": "./aux/report-todo.js"
   },
   "directories": {
     "lib": "./src",
