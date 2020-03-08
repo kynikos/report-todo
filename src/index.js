@@ -3,8 +3,8 @@
 // Licensed under MIT
 // https://github.com/kynikos/report-todo/blob/master/LICENSE
 
-// TODO: Start using ES6 module imports when they're no longer experimental
-//   in Node.js
+// TODO[setup]: Start using ES6 module imports when they're no longer
+//   experimental in Node.js
 const {Channel} = require('queueable')
 const {iterateParseFiles} = require('./iterateParseFiles')
 const {generateMatches} = require('./generateMatches')
@@ -16,23 +16,22 @@ module.exports.DEFAULT_OPTIONS = DEFAULT_OPTIONS
 // These exports are required by the bin script, which can't require them
 // directly, since technically they get bundled in the report-todo library,
 // they're not available as independent node_modules libraries
-// TODO: Make a Babel plugin to pre-process all oneLine strings at compile time
-//   (turn them all into normal strings, properly dedented)
+// TODO[setup]: Make a Babel plugin to pre-process all oneLine strings at
+//   compile time (turn them all into normal strings, properly dedented)
 module.exports.oneLine = require('common-tags').oneLine
 module.exports.commander = require('commander')
 
-// TODO: NPM recommends also specifying 'engines' in package.json
+// TODO[setup]: NPM recommends also specifying 'engines' in package.json
 //   https://docs.npmjs.com/using-npm/developers.html
-// TODO: Use a configuration file to sort sections in an arbitrary order
-// TODO: Support comments with closing tag, e.g.
+// TODO[enhancement]: Use a configuration file to sort sections in an arbitrary
+//   order
+// TODO[enhancement]: Support comments with closing tag, e.g.
 //  /* some comment */
-// TODO: See also https://pgilad.github.io/leasot/
+// TODO[integration]: See also https://pgilad.github.io/leasot/
 //       Adapt this as a plugin? Note that it also supports custom parsers
-// TODO: How cool would it be if the whole thing could be integrated with
-//   GitHub's issue tracker etc.
+// TODO[integration]: How cool would it be if the whole thing could be
+//   integrated with GitHub's issue tracker etc.
 
-// TODO: Document that this is using globby, so for example also negated
-//   patterns are supported
 module.exports.reportTodo = function reportTodo(globs, options = {}) {
   const {
     tags,
