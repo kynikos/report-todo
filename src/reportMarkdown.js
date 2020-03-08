@@ -6,12 +6,14 @@
 
 module.exports.reportMarkdown = function reportMarkdown(
   todos,
+  reportLinksPrefix,
   labelsSeparator,
 ) {
   const {subSectionKeys, subSectionText} = recurseSection({
     currentSection: todos,
     currentLevel: 1,
     groupedValues: [],
+    reportLinksPrefix,
     labelsSeparator,
   })
 
@@ -72,20 +74,25 @@ class sectionText {
     this.addLine(line.join(''))
   }
 
-  addTableData({filePath, startLineNo, tag, labels, lines}, labelsSeparator) {
-    // TODO: Escape at least '|' and '\' (optionally?)
+  addTableData(
+    {filePath, startLineNo, tag, labels, lines},
+    reportLinksPrefix,
+    labelsSeparator,
+  ) {
+    // TODO[enhancement]: Escape at least '\|' and '\' (optionally?)
     //  Or escape all special Markdown characters?
     //  Or just let the user do the escaping when necessary
     //  Use '\' or HTML entities? Test
+    const url = `${reportLinksPrefix}${filePath}#L${startLineNo}`
     const line = []
 
     if (this.showFilePath) {
       line.push(
-        `| [${filePath}](${filePath}#L${startLineNo})`,
+        `| [${filePath}](${url})`,
         `| ${startLineNo}`,
       )
     } else {
-      line.push(`| [${startLineNo}](${filePath}#L${startLineNo})`)
+      line.push(`| [${startLineNo}](${url})`)
     }
 
     if (this.showTag) line.push(`| ${tag}`)
@@ -101,7 +108,8 @@ class sectionText {
 
 
 function recurseSection({
-  currentSection, currentLevel, groupedValues, labelsSeparator,
+  currentSection, currentLevel, groupedValues, reportLinksPrefix,
+  labelsSeparator,
 }) {
   const sectionKeys = []
   const text = new sectionText()
@@ -126,6 +134,7 @@ function recurseSection({
         currentSection: matches,
         currentLevel: currentLevel + 1,
         groupedValues: groupedValues.concat(type),
+        reportLinksPrefix,
         labelsSeparator,
       })
 
@@ -160,6 +169,7 @@ function recurseSection({
           labels: match.labels,
           lines: match.lines,
         },
+        reportLinksPrefix,
         labelsSeparator,
       )
     }

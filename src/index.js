@@ -45,6 +45,7 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
     reportMode,
     reportGroupBy,
     reportSortBy,
+    reportLinksPrefix,
   } = {
     ...DEFAULT_OPTIONS.reduce((acc, {key, value}) => {
       acc[key] = value
@@ -82,6 +83,7 @@ module.exports.reportTodo = function reportTodo(globs, options = {}) {
     reportGroupBy,
     reportSortBy,
     reportMode,
+    reportLinksPrefix,
     labelsSeparator,
   })
 }

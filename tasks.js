@@ -95,6 +95,7 @@ async function todo() {
       ],
       {
         reportMode: 'markdown',
+        reportLinksPrefix: '../',
       },
     ),
   )

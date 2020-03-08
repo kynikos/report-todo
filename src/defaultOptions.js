@@ -129,4 +129,13 @@ module.exports = [
       default is "${value.join(',')}"`,
     cliProcess: (value, previous) => value.split(','),
   },
+  {
+    key: 'reportLinksPrefix',
+    value: null,
+    desc: () => L`reports that create links to the files will prefix
+      their URLs with this string; nothing is prefixed by default`,
+    cliFlags: '--report-links-prefix <PREFIX>',
+    cliDesc: () => L`reports that create links to the files will prefix
+    their URLs with this string; nothing is prefixed by default`,
+  },
 ]
