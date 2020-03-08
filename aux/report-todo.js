@@ -1,6 +1,6 @@
 // The shebang is added by webpack's BannerPlugin, otherwise webpack gets
 // confused by it
-//#! /usr/bin/env node
+// #! /usr/bin/env node
 
 // TODO[setup]: minimist is a simpler alternative to commander.js
 // This requires having run 'npm link' and 'npm link report-todo'
