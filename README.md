@@ -216,6 +216,7 @@ Or, if locally installed in a directory:
 | `-m, --report-mode <MODE>` | the generated report mode; one of "json", "markdown"; more modes are available through the Node.js API; default is "markdown" |
 | `-g, --report-group-by <KEY1,KEY2...>` | comma-separated, ordered list of keys by which results are grouped and (possibly nested) report sections created; one or more of "filePath", "tag", "startLineNo", "lines", "labels"; default is "labels" |
 | `-s, --report-sort-by <KEY1,KEY2...>` | comma-separated, ordered list of keys by which results are sorted within report sections; one or more of "filePath", "tag", "startLineNo", "lines", "labels"; default is "filePath,startLineNo" |
+| `--report-links-prefix <PREFIX>` | reports that create links to the files will prefix their URLs with this string; nothing is prefixed by default |
 
 ------------
 
@@ -253,6 +254,7 @@ reportTodo(globs, {
   reportMode,
   reportGroupBy,
   reportSortBy,
+  reportLinksPrefix,
 }
 ```
 
@@ -270,6 +272,7 @@ reportTodo(globs, {
 | `reportMode` | `"markdown"` | the generated report mode; one of "generator", "object", "json", "markdown"; "generator" returns an asynchronous generator that yields results as they are found (files are opened asynchronously, so the order of the results is not guaranteed to be the same at every run); "object" returns a grouped and sorted JavaScript object; "json" returns a JSON string; "markdown" returns a Markdown document |
 | `reportGroupBy` | `["labels"]` | ordered array of keys by which results are grouped and (possibly nested) report sections created; one or more of "filePath", "tag", "startLineNo", "lines", "labels" |
 | `reportSortBy` | `["filePath","startLineNo"]` | ordered array of keys by which results are sorted within report sections; one or more of "filePath", "tag", "startLineNo", "lines", "labels" |
+| `reportLinksPrefix` | `null` | reports that create links to the files will prefix their URLs with this string; nothing is prefixed by default |
 
 ### Examples
 
