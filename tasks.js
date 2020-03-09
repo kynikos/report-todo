@@ -25,7 +25,7 @@ const {
 } = require('@kynikos/tasks/releasing')
 const {wrapCommander} = require('@kynikos/tasks/commander')
 const {makeReadme} = require('./aux/README')
-const {reportTodo} = require('./dist/index')
+const {reportTodo: reportTodoSrc} = require('./src/index')
 const packageJson = require('./package.json')
 
 // TODO[setup]: The @kynikos dependencies should only provide peerDependencies
@@ -87,7 +87,7 @@ function runTests({
 async function todo({labelOnly}) {
   fs.writeFileSync(
     './TODO.md', // report-todo-ignore-line
-    await reportTodo(
+    await reportTodoSrc(
       [
         '.',
         '!./.git',
