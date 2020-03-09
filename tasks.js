@@ -193,6 +193,12 @@ function release() {
     // updateDocumentation,
     buildDocumentation: () => docs(),
     setupDistributionPackages: () => setupPkg(),
+    // TODO[setup]: Create a separate package with normal package.json
+    //   dependencies installed in node_modules
+    //   For example restore the normal separation between 'dependencies' and
+    //   'devDependencies' in package.json, but, when building the
+    //   compiled/bundled version, temporarily merge 'dependencies' into
+    //   'devDependencies'
     testBuildDistributionPackages: () => makePkg(),
     // TODO[setup]: Allow changing pkgrel
     testInstallDistributionPackages: () => installPkg({pkgrel: 1}),

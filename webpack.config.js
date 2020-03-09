@@ -5,6 +5,14 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 
 module.exports = function ({production}) {
+  // TODO[setup]: Create a separate package with normal package.json
+  //   dependencies installed in node_modules
+  //   For example restore the normal separation between 'dependencies' and
+  //   'devDependencies' in package.json, but, when building the
+  //   compiled/bundled version, temporarily merge 'dependencies' into
+  //   'devDependencies'
+  // TODO[setup]: Use an equivalent to licensify, especially with the bundled
+  //   version
   return {
     entry: {
       index: path.resolve(__dirname, 'src', 'index.js'),
