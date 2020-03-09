@@ -110,7 +110,7 @@ Pass multiple arguments to parse files under various patterns. Patterns are
 processed with [globby](https://github.com/sindresorhus/globby), which for
 example also supports negative (exclude) matches by prefixing them with an
 exclamation mark. Some patterns are also excluded by default, see also the
-\`--no-default-excludes\` option. For Example:
+\`--no-default-excludes\` option. For example:
 
     $ report-todo ./src ./docs !./test
 
