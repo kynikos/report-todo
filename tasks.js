@@ -86,12 +86,12 @@ function runTests({
 
 async function todo({labelOnly}) {
   fs.writeFileSync(
-    './aux/TODO.md', // report-todo-ignore-line
+    './TODO.md', // report-todo-ignore-line
     await reportTodo(
       [
         '.',
+        '!./TODO.md', // report-todo-ignore-line
         '!./aux/DEMO.js',
-        '!./aux/TODO.md', // report-todo-ignore-line
         '!./build',
         '!./dist',
         '!./node_modules',
@@ -102,7 +102,6 @@ async function todo({labelOnly}) {
         labels: labelOnly ? [null] : null,
         labelsIsBlacklist: Boolean(labelOnly),
         reportMode: 'markdown',
-        reportLinksPrefix: '../',
       },
     ),
   )
