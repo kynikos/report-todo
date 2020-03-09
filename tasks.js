@@ -63,6 +63,8 @@ function build({production}) {
 
 
 function runTests({
+  // TODO[setup]: Optionally require the compiled library from dist/ to test it
+  //   Especially do it when testing a release
   testNameRegex,
   verbose,
   printConsole,
@@ -180,6 +182,8 @@ function release() {
       Do it manually, don't use npm-version`,
     updateDependencies: () => maintainDependencies(),
     recompileApplication: () => build({production: true}),
+    // TODO[setup]: Require the compiled library from dist/ to test it when
+    //   testing a release
     runTests: () => runTests({}),
     checkRelatedFunctionality: false,
     lintCode: () => lint(),

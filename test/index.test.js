@@ -1,7 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 const {runSync} = require('@kynikos/tasks/subprocess')
-const {reportTodo} = require('../dist/index')
+const {reportTodo: reportTodoDist} = require('../dist/index')
+const {reportTodo: reportTodoSrc} = require('../src/index')
 const {fixtures} = require('./fixtures')
 const {reportOptions} = require('./reportOptions')
 
@@ -21,6 +22,9 @@ beforeAll(() => {
 
 
 describe.each(fixtures)('%s (fixture #%#)', (fixtureName, options, cliArgs) => {
+  // TODO[setup]: Optionally require the compiled library from dist to test it
+  // const reportTodo = reportTodoDist
+  const reportTodo = reportTodoSrc
   test('generator', async () => {
     expect.assertions(1)
 
