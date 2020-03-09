@@ -90,13 +90,15 @@ async function todo({labelOnly}) {
     await reportTodo(
       [
         '.',
-        '!./TODO.md', // report-todo-ignore-line
+        '!./.git',
         '!./aux/DEMO.js',
         '!./build',
         '!./dist',
         '!./node_modules',
         '!./README.md',
-        '!./test',
+        '!./test/expected',
+        '!./test/fixtures',
+        '!./TODO.md', // report-todo-ignore-line
       ],
       {
         labels: labelOnly ? [null] : null,
