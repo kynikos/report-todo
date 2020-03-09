@@ -31,13 +31,13 @@ module.exports.sortGroupedMatches = function sortGroupedMatches(
     return groupedSortedMatches
   }
 
-  for (const sortKey of sortBy.slice().reverse()) {
-    groupedMatches.sort((j, k) => {
+  groupedMatches.sort((j, k) => {
+    for (const sortKey of sortBy) {
       if (j[sortKey] < k[sortKey]) return -1
       if (j[sortKey] > k[sortKey]) return 1
-      return 0
-    })
-  }
+    }
+    return 0
+  })
 
   return groupedMatches
 }
