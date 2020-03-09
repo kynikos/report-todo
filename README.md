@@ -92,7 +92,7 @@ These are based on
 
 ### JSON
 
-$ report-todo aux/DEMO.js -m json
+    $ report-todo aux/DEMO.js -m json
 
 ```
 [
