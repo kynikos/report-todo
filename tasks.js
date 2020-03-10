@@ -210,6 +210,7 @@ function release() {
     // pushToRemoteGitRepository,
     publishToPackageIndex: () => publishToNpm(),
     publishToSoftwareDistributions: () => publishToAur(),
+    // updateBugTracker,
     // announceRelease,
     // advertiseRelease,
     // restoreDevelopmentEnvironment,
